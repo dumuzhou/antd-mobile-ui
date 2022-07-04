@@ -1,26 +1,44 @@
 {
   "name": "antd-mobile-ui-rn",
-  "version": "0.0.0",
-  "description": "> TODO: description",
-  "author": "邓银 <w-dengyin@rootcloud.com>",
-  "homepage": "https://github.com/dumuzhou/antd-mobile-ui#readme",
-  "license": "ISC",
-  "main": "lib/antd-mobile-ui-rn.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+  "version": "5.16.1",
+  "dependencies": {
+    "@floating-ui/dom": "^0.5.2",
+    "@react-spring/web": "^9.4.5",
+    "@use-gesture/react": "10.2.15",
+    "ahooks": "^3.4.1",
+    "antd-mobile-icons": "^0.3.0",
+    "antd-mobile-v5-count": "^1.0.1",
+    "big.js": "^6.1.1",
+    "classnames": "^2.3.1",
+    "dayjs": "^1.11.3",
+    "lodash": "^4.17.21",
+    "rc-field-form": "~1.26.7",
+    "react-is": "^17.0.2",
+    "staged-components": "^1.1.3",
+    "tslib": "^2.4.0",
+    "use-sync-external-store": "^1.1.0"
   },
-  "files": [
-    "lib"
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "main": "./cjs/index.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
+  "typings": "./es/index.d.ts",
+  "unpkg": "./umd/antd-mobile.js",
+  "GravityCDN": "./umd/antd-mobile.js",
+  "sideEffects": [
+    "**/*.css",
+    "**/*.less",
+    "./es/index.js",
+    "./src/index.ts",
+    "./es/global/index.js",
+    "./src/global/index.ts"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dumuzhou/antd-mobile-ui.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
-  "bugs": {
-    "url": "https://github.com/dumuzhou/antd-mobile-ui/issues"
+    "url": "git+https://github.com/ant-design/ant-design-mobile.git",
+    "branch": "master",
+    "platform": "github"
   }
 }

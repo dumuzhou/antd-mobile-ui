@@ -1,4 +1,4 @@
-import type { FC, MouseEvent } from 'react'
+import type { FC } from 'react'
 import React, { useContext } from 'react'
 import { context, Link, NavLink } from 'dumi/theme'
 import LocaleSelect from './LocaleSelect'
@@ -6,6 +6,7 @@ import './Navbar.less'
 import p from '../../../package.json'
 import SearchBar from './SearchBar'
 import { Popover } from 'antd-mobile'
+import { Action } from 'antd-mobile/es/components/popover'
 
 interface INavbarProps {
   location: any
@@ -35,20 +36,17 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
       <div className='right-part'>
         <nav>
           {navItems.map(nav => {
-            const popoverContent = Boolean(nav.children?.length) && (
-              <ul className='nav-popover-ul'>
-                {nav.children.map(
-                  item =>
-                    !!item.path && (
-                      <li key={item.path}>
-                        <NavLink to={item.path}>{item.title}</NavLink>
-                      </li>
-                    )
-                )}
-              </ul>
-            )
+            const key = nav.title || nav.path
+            const actions: Action[] =
+              Boolean(nav.children?.length) &&
+              nav.children.map(item => ({
+                text: item.title,
+                onClick: () => {
+                  window.open(item.path, '_blank')
+                },
+              }))
             const span = (
-              <span key={nav.title || nav.path}>
+              <span key={key}>
                 {nav.path ? (
                   <NavLink to={nav.path}>{nav.title}</NavLink>
                 ) : (
@@ -56,10 +54,10 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
                 )}
               </span>
             )
-            return popoverContent ? (
-              <Popover content={popoverContent} trigger='click'>
+            return actions ? (
+              <Popover.Menu trigger='click' actions={actions} key={key}>
                 {span}
-              </Popover>
+              </Popover.Menu>
             ) : (
               span
             )

@@ -10,10 +10,13 @@ const webpackStream = require('webpack-stream')
 const webpack = require('webpack')
 const through = require('through2')
 const vite = require('vite')
+const rename = require('gulp-rename')
+const autoprefixer = require('autoprefixer')
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const tsconfig = require('./tsconfig.json')
 const packageJson = require('./package.json')
+const StatoscopeWebpackPlugin = require('@statoscope/webpack-plugin').default
 
 const pxMultiplePlugin = require('postcss-px-multiple')({ times: 2 })
 
@@ -25,7 +28,7 @@ function buildStyle() {
   return gulp
     .src(['./src/**/*.less'], {
       base: './src/',
-      ignore: ['**/demos/**/*', '**/tests/**/*'],
+      ignore: ['**/demos/**/*', '**/tests/**/*', '*.patch.less'],
     })
     .pipe(
       less({
@@ -33,8 +36,27 @@ function buildStyle() {
         relativeUrls: true,
       })
     )
+    .pipe(
+      postcss([
+        autoprefixer({
+          overrideBrowserslist: 'iOS >= 10, Chrome >= 49',
+        }),
+      ])
+    )
     .pipe(gulp.dest('./lib/es'))
     .pipe(gulp.dest('./lib/cjs'))
+}
+
+function copyPatchStyle() {
+  return gulp
+    .src(['./lib/es/global/css-vars-patch.css'])
+    .pipe(
+      rename({
+        dirname: '',
+        extname: '.css',
+      })
+    )
+    .pipe(gulp.dest('./lib/bundle'))
 }
 
 function copyAssets() {
@@ -59,7 +81,7 @@ function buildCJS() {
 function buildES() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
-    module: 'ESNext',
+    module: 'ES6',
   })
   return gulp
     .src(['src/**/*.{ts,tsx}'], {
@@ -77,7 +99,7 @@ function buildES() {
 function buildDeclaration() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
-    module: 'ESNext',
+    module: 'ES6',
     declaration: true,
     emitDeclarationOnly: true,
   })
@@ -156,6 +178,9 @@ function umdWebpack() {
           optimization: {
             usedExports: true,
           },
+          performance: {
+            hints: false,
+          },
           resolve: {
             extensions: ['.js', '.json'],
           },
@@ -164,6 +189,11 @@ function umdWebpack() {
               analyzerMode: 'static',
               openAnalyzer: false,
               reportFilename: 'report/report.html',
+            }),
+            new StatoscopeWebpackPlugin({
+              saveReportTo: 'report/statoscope/report.html',
+              saveStatsTo: 'report/statoscope/stats.json',
+              open: false,
             }),
           ],
           module: {
@@ -239,6 +269,8 @@ function generatePackageJSON() {
         delete parsed.devDependencies
         delete parsed.publishConfig
         delete parsed.files
+        delete parsed.resolutions
+        delete parsed.packageManager
         const stringified = JSON.stringify(parsed, null, 2)
         file.contents = Buffer.from(stringified)
         cb(null, file)
@@ -247,7 +279,7 @@ function generatePackageJSON() {
     .pipe(gulp.dest('./lib/'))
 }
 
-function create2xFolder() {
+function init2xFolder() {
   return gulp
     .src('./lib/**', {
       base: './lib/',
@@ -257,30 +289,149 @@ function create2xFolder() {
 }
 
 function build2xCSS() {
+  return (
+    gulp
+      .src('./lib/2x/**/*.css', {
+        base: './lib/2x/',
+      })
+      // Hack fix since postcss-px-multiple ignores the `@supports` block
+      .pipe(
+        replace(
+          '@supports not (color: var(--adm-color-text))',
+          '@media screen and (min-width: 999999px)'
+        )
+      )
+      .pipe(postcss([pxMultiplePlugin]))
+      .pipe(
+        replace(
+          '@media screen and (min-width: 999999px)',
+          '@supports not (color: var(--adm-color-text))'
+        )
+      )
+      .pipe(
+        gulp.dest('./lib/2x', {
+          overwrite: true,
+        })
+      )
+  )
+}
+
+// ui-rn
+function cleanRn() {
+  return del('../antd-mobile-ui-rn/**', {
+    force: true,
+  })
+}
+function cleanH5() {
+  return del('../antd-mobile-ui/**', {
+    force: true,
+  })
+}
+
+function copyModule() {
+  return gulp.src('./src/**/*').pipe(gulp.dest('../antd-mobile-ui-rn'))
+}
+function generatePackageJSONModule() {
   return gulp
-    .src('./lib/2x/**/*.css', {
-      base: './lib/2x/',
-    })
-    .pipe(postcss([pxMultiplePlugin]))
-    .pipe(replace('--adm-hd: 1;', '--adm-hd: 2;'))
+    .src('./package.json')
     .pipe(
-      gulp.dest('./lib/2x', {
-        overwrite: true,
+      through.obj((file, enc, cb) => {
+        const rawJSON = file.contents.toString()
+        const parsed = JSON.parse(rawJSON)
+        parsed.name = 'antd-mobile-ui-rn'
+        delete parsed.scripts
+        delete parsed.devDependencies
+        delete parsed.publishConfig
+        delete parsed.files
+        delete parsed.resolutions
+        delete parsed.packageManager
+        const stringified = JSON.stringify(parsed, null, 2)
+        file.contents = Buffer.from(stringified)
+        cb(null, file)
       })
     )
+    .pipe(gulp.dest('../antd-mobile-ui-rn/'))
+}
+
+// ui-h5
+function copyH5() {
+  return gulp.src('./src/**/*.less').pipe(gulp.dest('../antd-mobile-ui'))
+}
+function generatePackageJSONH5() {
+  return gulp
+    .src('./package.json')
+    .pipe(
+      through.obj((file, enc, cb) => {
+        const rawJSON = file.contents.toString()
+        const parsed = JSON.parse(rawJSON)
+        parsed.name = 'antd-mobile-ui'
+        delete parsed.scripts
+        delete parsed.devDependencies
+        delete parsed.publishConfig
+        delete parsed.files
+        delete parsed.resolutions
+        delete parsed.packageManager
+        const stringified = JSON.stringify(parsed, null, 2)
+        file.contents = Buffer.from(stringified)
+        cb(null, file)
+      })
+    )
+    .pipe(gulp.dest('../antd-mobile-ui/'))
+}
+function buildESH5() {
+  const tsProject = ts({
+    ...tsconfig.compilerOptions,
+    module: 'ES6',
+  })
+  return gulp
+    .src(['src/**/*.{ts,tsx}'], {
+      ignore: ['**/demos/**/*', '**/tests/**/*'],
+    })
+    .pipe(tsProject)
+    .pipe(
+      babel({
+        'plugins': ['./babel-transform-less-to-css'],
+      })
+    )
+    .pipe(gulp.dest('../antd-mobile-ui/'))
+}
+function buildDeclarationUi() {
+  const tsProject = ts({
+    ...tsconfig.compilerOptions,
+    module: 'ES6',
+    declaration: true,
+    emitDeclarationOnly: true,
+  })
+  return gulp
+    .src(['src/**/*.{ts,tsx}'], {
+      ignore: ['**/demos/**/*', '**/tests/**/*'],
+    })
+    .pipe(tsProject)
+    .pipe(gulp.dest('../antd-mobile-ui/'))
+    .pipe(gulp.dest('../antd-mobile-ui-rn/'))
 }
 
 exports.umdWebpack = umdWebpack
 exports.buildBundles = buildBundles
 
 exports.default = gulp.series(
-  clean,
-  buildES,
-  buildCJS,
-  gulp.parallel(buildDeclaration, buildStyle),
-  copyAssets,
-  copyMetaFiles,
-  generatePackageJSON,
-  gulp.series(create2xFolder, build2xCSS),
-  gulp.parallel(umdWebpack, buildBundles)
+  cleanRn,
+  cleanH5,
+  copyModule,
+  generatePackageJSONModule,
+  copyH5,
+  generatePackageJSONH5,
+  buildESH5,
+  buildDeclarationUi
+
+  //clean,
+  //buildES,
+  ////buildCJS,
+  //gulp.parallel(buildDeclaration, buildStyle),
+  //copyPatchStyle,
+  //copyAssets,
+  //copyMetaFiles,
+  //generatePackageJSON,
+  //gulp.parallel(umdWebpack, buildBundles),
+  //gulp.series(init2xFolder, build2xCSS)
 )
