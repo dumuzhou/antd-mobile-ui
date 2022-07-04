@@ -329,7 +329,7 @@ function cleanH5() {
 }
 
 function copyModule() {
-  return gulp.src('./src/**/*').pipe(gulp.dest('../antd-mobile-ui-rn'))
+  return gulp.src('./ui/**/*').pipe(gulp.dest('../antd-mobile-ui-rn'))
 }
 function generatePackageJSONModule() {
   return gulp
@@ -340,6 +340,7 @@ function generatePackageJSONModule() {
         const parsed = JSON.parse(rawJSON)
         parsed.name = 'antd-mobile-ui-rn'
         delete parsed.scripts
+        delete parsed.private
         delete parsed.devDependencies
         delete parsed.publishConfig
         delete parsed.files
@@ -355,7 +356,7 @@ function generatePackageJSONModule() {
 
 // ui-h5
 function copyH5() {
-  return gulp.src('./src/**/*.less').pipe(gulp.dest('../antd-mobile-ui'))
+  return gulp.src('./ui/**/*.less').pipe(gulp.dest('../antd-mobile-ui'))
 }
 function generatePackageJSONH5() {
   return gulp
@@ -366,6 +367,7 @@ function generatePackageJSONH5() {
         const parsed = JSON.parse(rawJSON)
         parsed.name = 'antd-mobile-ui'
         delete parsed.scripts
+        delete parsed.private
         delete parsed.devDependencies
         delete parsed.publishConfig
         delete parsed.files
@@ -384,7 +386,7 @@ function buildESH5() {
     module: 'ES6',
   })
   return gulp
-    .src(['src/**/*.{ts,tsx}'], {
+    .src(['ui/**/*.{ts,tsx}'], {
       ignore: ['**/demos/**/*', '**/tests/**/*'],
     })
     .pipe(tsProject)
@@ -403,7 +405,7 @@ function buildDeclarationUi() {
     emitDeclarationOnly: true,
   })
   return gulp
-    .src(['src/**/*.{ts,tsx}'], {
+    .src(['ui/**/*.{ts,tsx}'], {
       ignore: ['**/demos/**/*', '**/tests/**/*'],
     })
     .pipe(tsProject)

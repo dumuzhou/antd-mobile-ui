@@ -1,6 +1,7 @@
 {
   "name": "antd-mobile",
-  "version": "5.16.1",
+  "version": "0.0.10",
+  "private": true,
   "scripts": {
     "install": "node ./scripts/fix.js",
     "start": "dumi dev",
@@ -17,6 +18,7 @@
   "dependencies": {
     "@floating-ui/dom": "^0.5.2",
     "@react-spring/web": "^9.4.5",
+    "@tarojs/components": "^3.4.13",
     "@use-gesture/react": "10.2.15",
     "ahooks": "^3.4.1",
     "antd-mobile-icons": "^0.3.0",

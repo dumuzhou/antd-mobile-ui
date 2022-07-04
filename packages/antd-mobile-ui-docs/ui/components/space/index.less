@@ -1,0 +1,51 @@
+@import "../../style/index.less";
+.m-space {
+  display: flex;
+  flex-direction: row;
+  &-vertical {
+    flex-direction: column;
+  }
+  justify-content: flex-start;
+  &-justify {
+    &-center {
+      justify-content: center;
+    }
+    &-end {
+      justify-content: flex-end;
+    }
+    &-between {
+      justify-content: space-between;
+    }
+    &-evenly {
+      justify-content: space-evenly;
+    }
+    &-around {
+      justify-content: space-around;
+    }
+  }
+  align-items: center;
+  &-align {
+    &-start {
+      align-items: flex-start;
+    }
+    &-end {
+      align-items: flex-end;
+    }
+    &-stretch {
+      align-items: stretch;
+    }
+  }
+  flex-wrap: nowrap;
+  &-wrap {
+    flex-wrap: wrap;
+  }
+  &-item {
+    margin-right: 16px;
+    &-wrap {
+      margin-bottom: 16px;
+    }
+    &-vertical {
+      margin-bottom: 16px;
+    }
+  }
+}
