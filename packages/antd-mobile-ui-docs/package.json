@@ -2,6 +2,10 @@
   "name": "antd-mobile",
   "version": "0.0.11",
   "private": true,
+  "main": "./components/index.js",
+  "module": "./components/index.js",
+  "types": "./components/index.d.ts",
+  "typings": "./components/index.d.ts",
   "scripts": {
     "install": "node ./scripts/fix.js",
     "start": "dumi dev",
@@ -119,10 +123,6 @@
     "@types/react": "18",
     "@types/react-dom": "18"
   },
-  "main": "./cjs/index.js",
-  "module": "./es/index.js",
-  "types": "./es/index.d.ts",
-  "typings": "./es/index.d.ts",
   "unpkg": "./umd/antd-mobile.js",
   "GravityCDN": "./umd/antd-mobile.js",
   "files": [

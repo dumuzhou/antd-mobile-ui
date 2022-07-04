@@ -329,7 +329,17 @@ function cleanH5() {
 }
 
 function copyModule() {
-  return gulp.src('./ui/**/*').pipe(gulp.dest('../antd-mobile-ui-rn'))
+  return gulp.src('./ui/**/*.less').pipe(gulp.dest('../antd-mobile-ui-rn'))
+}
+function copyModuleTs() {
+  return gulp
+    .src(['./ui/**/*.ts', './ui/**/*.tsx'])
+    .pipe(
+      rename({
+        extname: '.js',
+      })
+    )
+    .pipe(gulp.dest('../antd-mobile-ui-rn'))
 }
 function generatePackageJSONModule() {
   return gulp
@@ -420,6 +430,7 @@ exports.default = gulp.series(
   cleanRn,
   cleanH5,
   copyModule,
+  copyModuleTs,
   generatePackageJSONModule,
   copyH5,
   generatePackageJSONH5,

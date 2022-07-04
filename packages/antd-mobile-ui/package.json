@@ -1,6 +1,10 @@
 {
   "name": "antd-mobile-ui",
   "version": "0.0.11",
+  "main": "./components/index.js",
+  "module": "./components/index.js",
+  "types": "./components/index.d.ts",
+  "typings": "./components/index.d.ts",
   "dependencies": {
     "@floating-ui/dom": "^0.5.2",
     "@react-spring/web": "^9.4.5",
@@ -22,10 +26,6 @@
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
-  "main": "./cjs/index.js",
-  "module": "./es/index.js",
-  "types": "./es/index.d.ts",
-  "typings": "./es/index.d.ts",
   "unpkg": "./umd/antd-mobile.js",
   "GravityCDN": "./umd/antd-mobile.js",
   "sideEffects": [
