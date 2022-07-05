@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile-ui",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "main": "./components/index.js",
   "module": "./components/index.js",
   "types": "./components/index.d.ts",
