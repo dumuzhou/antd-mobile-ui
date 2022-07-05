@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "outDir": "./lib",
+    "rootDirs": ["src", "config"],
+    "allowJs": true,
+    "declaration": false,
+    "importHelpers": true,
+    "downlevelIteration": true,
+    "sourceMap": true,
+    "target": "es2020",
+    "module": "es2020",
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "typeRoots": ["./src/typings", "./node_modules/@types"],
+    "lib": ["ES2015", "DOM"],
+    "paths": {
+      "antd-mobile": ["src/index.ts"],
+      "antd-mobile/src/*": ["src/*"],
+      "antd-mobile/es/*": ["src/*"],
+      "demos": ["src/demos/index.ts"],
+      "testing": ["src/tests/testing"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "lib", "es", "dist", ".dumi"],
+  "ts-node": {
+    "compilerOptions": {
+      "target": "es2020",
+      "module": "es2020",
+      "strict": false,
+      "esModuleInterop": true,
+      "jsx": "preserve",
+      "moduleResolution": "node"
+    }
+  }
+}

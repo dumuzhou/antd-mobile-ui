@@ -15,6 +15,7 @@ const autoprefixer = require('autoprefixer')
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const tsconfig = require('./tsconfig.json')
+const tsconfigrn = require('./tsconfigrn.json')
 const packageJson = require('./package.json')
 const StatoscopeWebpackPlugin = require('@statoscope/webpack-plugin').default
 
@@ -328,7 +329,7 @@ function cleanH5() {
   })
 }
 
-function copyModule() {
+function copyModuleLess() {
   return gulp.src('./ui/**/*.less').pipe(gulp.dest('../antd-mobile-ui-rn'))
 }
 function copyModuleTs() {
@@ -341,6 +342,31 @@ function copyModuleTs() {
     )
     .pipe(gulp.dest('../antd-mobile-ui-rn'))
 }
+function buildESRN() {
+  const tsProject = ts({
+    ...tsconfigrn.compilerOptions,
+    module: 'ES6',
+  })
+  return (
+    gulp
+      .src(['ui/**/*.{ts,tsx}'], {
+        ignore: ['**/demos/**/*', '**/tests/**/*'],
+      })
+      .pipe(tsProject)
+      //.pipe(
+      //babel({
+      //'plugins': ['./babel-transform-less-to-css'],
+      //})
+      //)
+      .pipe(
+        rename({
+          extname: '.js',
+        })
+      )
+      .pipe(gulp.dest('../antd-mobile-ui-rn/'))
+  )
+}
+
 function generatePackageJSONModule() {
   return gulp
     .src('./package.json')
@@ -431,8 +457,9 @@ exports.buildBundles = buildBundles
 exports.default = gulp.series(
   cleanRn,
   cleanH5,
-  copyModule,
-  copyModuleTs,
+  copyModuleLess,
+  buildESRN,
+  //copyModuleTs,
   generatePackageJSONModule,
   copyH5,
   generatePackageJSONH5,
