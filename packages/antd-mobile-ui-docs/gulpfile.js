@@ -395,17 +395,19 @@ function buildESH5() {
     ...tsconfig.compilerOptions,
     module: 'ES6',
   })
-  return gulp
-    .src(['ui/**/*.{ts,tsx}'], {
-      ignore: ['**/demos/**/*', '**/tests/**/*'],
-    })
-    .pipe(tsProject)
-    .pipe(
-      babel({
-        'plugins': ['./babel-transform-less-to-css'],
+  return (
+    gulp
+      .src(['ui/**/*.{ts,tsx}'], {
+        ignore: ['**/demos/**/*', '**/tests/**/*'],
       })
-    )
-    .pipe(gulp.dest('../antd-mobile-ui/'))
+      .pipe(tsProject)
+      //.pipe(
+      //babel({
+      //'plugins': ['./babel-transform-less-to-css'],
+      //})
+      //)
+      .pipe(gulp.dest('../antd-mobile-ui/'))
+  )
 }
 function buildDeclarationUi() {
   const tsProject = ts({
