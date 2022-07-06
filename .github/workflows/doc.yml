@@ -1,0 +1,37 @@
+name: docs CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    # 拉取代码
+    - uses: actions/checkout@v3
+
+    # 安装依赖
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 14
+    - run: npm install
+
+    # 打包
+    - run: cd packages/antd-mobile-ui-docs && npm run build-doc && cd .. && cd ..
+
+    # 安装ssh 密钥
+    - name: Install SSH key
+      uses: shimataro/ssh-key-action@v2     
+      with:
+        name: id_rsa
+        key: ${{ secrets.SSH_KEY }}
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
+        if_key_exists: fail 
+    - run: |
+        # 上传
+        rsync -rz  packages/antd-mobile-ui-docs/dist/* root@hz.setmp.com:~/myDocker/nginx/antd-mobile-ui/www/
+        # 构建docker
+        ssh root@hz.setmp.com "cd /root/myDocker;/root/myDocker/installH5.sh"
