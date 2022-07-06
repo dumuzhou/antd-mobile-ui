@@ -21,10 +21,10 @@ jobs:
 
     # 打包
     - name: build
-    - run: cd packages/antd-mobile-ui-docs && yarn && npm run build-doc 
+      run: cd packages/antd-mobile-ui-docs && yarn && npm run build-doc 
 
     - name: 查看当前目录
-    - run: ls
+      run: ls
 
     # 安装ssh 密钥
     - name: Install SSH key
