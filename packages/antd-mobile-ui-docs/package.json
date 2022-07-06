@@ -11,7 +11,7 @@
     "build": "gulp",
     "build-doc": "dumi build && echo '!.*' > dist/.surgeignore",
     "lint": "eslint .",
-    "postinstall": "husky install",
+    "postinstall": "",
     "test": "jest",
     "test-with-coverage": "jest --coverage",
     "publish": "npm publish ./lib --registry=https://registry.npmjs.org",
