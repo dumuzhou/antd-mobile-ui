@@ -17,10 +17,9 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 14
-    - run: npm install
 
     # 打包
-    - run: cd packages/antd-mobile-ui-docs && npm run build-doc && cd .. && cd ..
+    - run: cd packages/antd-mobile-ui-docs && npm install && npm run build-doc && cd .. && cd ..
 
     # 安装ssh 密钥
     - name: Install SSH key
