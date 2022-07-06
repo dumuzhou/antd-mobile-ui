@@ -12,7 +12,6 @@ jobs:
     steps:
     # 拉取代码
     - uses: actions/checkout@v3
-
     # 安装ssh 密钥
     - name: Install SSH key
       uses: shimataro/ssh-key-action@v2     
