@@ -20,9 +20,10 @@ jobs:
 
     # 打包
     - name: build
-      run: cd packages/antd-mobile-ui-docs
-      run: npm install
-      run: npm run build-doc
+      run: |
+        cd packages/antd-mobile-ui-docs
+        npm install
+        npm run build-doc
 
     - name: 查看当前目录
       run: ls
