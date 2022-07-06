@@ -7,7 +7,6 @@
   "types": "./components/index.d.ts",
   "typings": "./components/index.d.ts",
   "scripts": {
-    "install": "node ./scripts/fix.js",
     "start": "dumi dev",
     "build": "gulp",
     "build-doc": "dumi build && echo '!.*' > dist/.surgeignore",
