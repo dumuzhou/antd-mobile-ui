@@ -38,6 +38,6 @@ jobs:
         if_key_exists: fail 
     - run: |
         # 上传
-        rsync -rz  packages/antd-mobile-ui-docs/dist/* root@hz.setmp.com:~/myDocker/nginx/antd-mobile-ui/www/
+        rsync -rz  packages/antd-mobile-ui-docs/dist/ root@hz.setmp.com:~/myDocker/nginx/antd-mobile-ui/www/
         # 构建docker
         ssh root@hz.setmp.com "cd /root/myDocker;/root/myDocker/installH5.sh"
