@@ -1,8 +1,10 @@
 import React from 'react'
 import { Button, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import useHref from '../../../hooks/useHref'
 
 export default () => {
+  useHref()
   return (
     <>
       <DemoBlock title='填充模式'>
