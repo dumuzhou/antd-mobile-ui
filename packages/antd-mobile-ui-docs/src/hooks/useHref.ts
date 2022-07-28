@@ -16,9 +16,16 @@ export default function () {
           'https://www.setmp.com/#/'
         )
         .replace('~', '') + '/index'
+    if (href.indexOf('https') > -1) {
+      rst = rst + 'index'
+    } else {
+      rst = rst + '/index'
+    }
     console.log('href')
     console.log(rst)
     console.log(rst.replace('~', ''))
+    console.log('值')
+    console.log(rst)
     if (rst) {
       document.location.href = rst
     }
