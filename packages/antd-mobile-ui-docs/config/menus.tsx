@@ -68,50 +68,50 @@ export const menus = {
       title: '快速上手',
       path: '/zh/guide/quick-start',
     },
-    {
-      title: '迁移指南',
-      path: '/guide/migration',
-    },
-    {
-      title: '常见问题',
-      path: '/zh/guide/faq',
-    },
-    {
-      title: 'CSS 变量',
-      path: '/zh/guide/css-variables',
-    },
+    //{
+    //title: '迁移指南',
+    //path: '/guide/migration',
+    //},
+    //{
+    //title: '常见问题',
+    //path: '/zh/guide/faq',
+    //},
+    //{
+    //title: 'CSS 变量',
+    //path: '/zh/guide/css-variables',
+    //},
     {
       title: '主题',
       path: '/zh/guide/theming',
     },
-    {
-      title: '深色模式（试验性）',
-      path: '/zh/guide/dark-mode',
-    },
-    {
-      title: '按需加载',
-      path: '/zh/guide/import-on-demand',
-    },
-    {
-      title: '国际化',
-      path: '/zh/guide/i18n',
-    },
-    {
-      title: '关于试验性',
-      path: '/zh/guide/what-is-experimental',
-    },
-    {
-      title: '高清适配',
-      path: '/zh/guide/hd',
-    },
-    {
-      title: '服务端渲染 / SSR（试验性）',
-      path: '/zh/guide/ssr',
-    },
-    {
-      title: '减弱动效（试验性）',
-      path: '/zh/guide/reduce-motion',
-    },
+    //{
+    //title: '深色模式（试验性）',
+    //path: '/zh/guide/dark-mode',
+    //},
+    //{
+    //title: '按需加载',
+    //path: '/zh/guide/import-on-demand',
+    //},
+    //{
+    //title: '国际化',
+    //path: '/zh/guide/i18n',
+    //},
+    //{
+    //title: '关于试验性',
+    //path: '/zh/guide/what-is-experimental',
+    //},
+    //{
+    //title: '高清适配',
+    //path: '/zh/guide/hd',
+    //},
+    //{
+    //title: '服务端渲染 / SSR（试验性）',
+    //path: '/zh/guide/ssr',
+    //},
+    //{
+    //title: '减弱动效（试验性）',
+    //path: '/zh/guide/reduce-motion',
+    //},
   ],
   '/components': [
     {

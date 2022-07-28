@@ -8,9 +8,17 @@ export default function () {
 
     // https://antd-mobile-ui.setmp.com/~demos/button-demo2
     // https://www.setmp.com/#/~demos/button-demo1
-    let rst = href
-      .replace('http://localhost:8000/', 'http://192.168.0.166:10086/#/')
-      .replace('https://antd-mobile-ui.setmp.com/', 'https://www.setmp.com/#/')
+    let rst =
+      href
+        .replace('http://localhost:8000/', 'http://192.168.0.166:10086/#/')
+        .replace(
+          'https://antd-mobile-ui.setmp.com/',
+          'https://www.setmp.com/#/'
+        )
+        .replace('~', '') + '/index'
+    console.log('href')
+    console.log(rst)
+    console.log(rst.replace('~', ''))
     if (rst) {
       document.location.href = rst
     }
