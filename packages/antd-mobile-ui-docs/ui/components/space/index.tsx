@@ -7,6 +7,7 @@ import Taro from "@tarojs/taro";
 //import { AmButtonProps, AmButtonState } from "../../../types/button";
 import "./index.less";
 
+const classPrefix = `adm-space`;
 export type SpaceProps = {
   direction?: "horizontal" | "vertical";
   justify?: "start" | "center" | "end" | "between" | "evenly" | "around";
@@ -25,12 +26,12 @@ const TmButton = function (p: SpaceProps) {
   return (
     <View
       className={classnames(
-        "m-space",
-        props.justify ? `m-space-justify-${props.justify}` : null,
-        props.align ? `m-space-align-${props.align}` : null,
+        `${classPrefix}`,
+        props.justify ? `${classPrefix}-justify-${props.justify}` : null,
+        props.align ? `${classPrefix}-align-${props.align}` : null,
         {
-          [`m-space-vertical`]: props.direction === "vertical",
-          [`m-space-wrap`]: props.wrap,
+          [`${classPrefix}-vertical`]: props.direction === "vertical",
+          [`${classPrefix}-wrap`]: props.wrap,
         }
       )}
     >
@@ -39,9 +40,10 @@ const TmButton = function (p: SpaceProps) {
           child !== null &&
           child !== undefined && (
             <View
-              className={classnames("m-space-item", {
-                [`m-space-item-wrap`]: props.wrap,
-                [`m-space-item-vertical`]: props.direction === "vertical",
+              className={classnames(`${classPrefix}-item`, {
+                [`${classPrefix}-item-wrap`]: props.wrap,
+                [`${classPrefix}-item-vertical`]:
+                  props.direction === "vertical",
               })}
             >
               {child}

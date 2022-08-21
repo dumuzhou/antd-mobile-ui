@@ -1,0 +1,26 @@
+@import "../../style/index.less";
+
+@class-prefix-button: ~"adm-divider";
+.@{class-prefix-button} {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  &-cld {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &-line {
+    height: 1px;
+    flex: 1;
+    background-color: @--adm-color-border;
+  }
+  &-texts {
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+  &-text {
+    font-size: @--adm-font-size-6;
+    color: @--adm-color-weak;
+  }
+}

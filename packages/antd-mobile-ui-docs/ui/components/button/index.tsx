@@ -1,46 +1,63 @@
-import classnames from 'classnames'
-import PropTypes, { InferProps } from 'prop-types'
-import React, { FC } from 'react'
-import { Button as TaroButton, Form, View, Text } from '@tarojs/components'
-//import { ButtonProps } from "@tarojs/components/types/Button";
-import Taro from '@tarojs/taro'
+import classnames from "classnames";
+import PropTypes, { InferProps } from "prop-types";
+import React, { FC } from "react";
+import { Button as TaroButton, Form, View, Text } from "@tarojs/components";
+import { ButtonProps as ButtonPropsNative } from "@tarojs/components/types/Button";
+import Taro from "@tarojs/taro";
 //import { AmButtonProps, AmButtonState } from "../../../types/button";
-import './index.less'
+import "./index.less";
+
+const classPrefix = `adm-button`;
 
 export type ButtonProps = {
-  color?: 'default' | 'primary' | 'success' | 'warning' | 'danger'
-  disabled?: boolean
-  fill?: 'solid' | 'outline' | 'none'
-  shape?: 'default' | 'rounded' | 'rectangular'
-  size?: 'mini' | 'small' | 'middle' | 'large'
-  onClick?: Function
-  children?: any
-}
+  color?: "default" | "primary" | "success" | "warning" | "danger";
+  disabled?: boolean;
+  fill?: "solid" | "outline" | "none";
+  shape?: "default" | "rounded" | "rectangular";
+  size?: "mini" | "small" | "middle" | "large";
+  onClick?: Function;
+  children?: any;
+
+  scope?: "userInfo" | "phoneNumber";
+  onGetUserInfo?: Function;
+  onGetAuthorize?: Function;
+  onGetPhoneNumber?: Function;
+  onGetRealNameAuthInfo?: Function;
+  onOpenSetting?: Function;
+  onLaunchApp?: Function;
+  onChooseAvatar?: Function;
+  onContact?: Function;
+};
 const defaultProps: ButtonProps = {
-  color: 'default',
+  color: "default",
   disabled: false,
-  fill: 'solid',
-  shape: 'default',
-  size: 'middle',
-}
+  fill: "solid",
+  shape: "default",
+  size: "middle",
+};
 const TmButton = function (p: ButtonProps) {
-  const props = { ...defaultProps, ...p }
+  const props = { ...defaultProps, ...p };
   return (
     <TaroButton
       className={classnames(
-        'm-button',
-        props.color ? `m-button-color-${props.color}` : null,
-        props.size ? `m-button-${props.size}` : null,
-        props.shape ? `m-button-${props.shape}` : null,
-        props.fill ? `m-button-fill-${props.fill}` : null,
-        props.disabled ? `m-button-${props.disabled}` : null,
+        `${classPrefix}`,
+        props.color ? `${classPrefix}-color-${props.color}` : null,
+        props.size ? `${classPrefix}-${props.size}` : null,
+        props.shape ? `${classPrefix}-${props.shape}` : null,
+        props.fill ? `${classPrefix}-fill-${props.fill}` : null,
+        props.disabled ? `${classPrefix}-${props.disabled}` : null,
         {
-          [`m-button-disabled`]: props.disabled,
+          [`${classPrefix}-disabled`]: props.disabled,
         }
       )}
-      onClick={() => {
+      onClick={(e) => {
         if (props.onClick) {
-          props.onClick()
+          props.onClick(e);
+        }
+      }}
+      onGetUserInfo={(e) => {
+        if (props.onGetUserInfo) {
+          props.onGetUserInfo(e);
         }
       }}
       hoverStyle={{
@@ -48,24 +65,24 @@ const TmButton = function (p: ButtonProps) {
       }}
       disabled={props.disabled}
     >
-      {props.disabled && <View className='m-button-disabled'></View>}
+      {props.disabled && <View className={`${classPrefix}-disabled`}></View>}
       <Text
         className={classnames(
-          'm-button-text',
-          props.color ? `m-button-text-${props.color}` : null,
-          props.size ? `m-button-text-${props.size}` : null,
-          props.fill ? `m-button-text-${props.fill}` : null,
-          (props.fill === 'outline' || props.fill === 'none') && props.color
-            ? `m-button-text-fill-${props.color}`
+          `${classPrefix}-text`,
+          props.color ? `${classPrefix}-text-${props.color}` : null,
+          props.size ? `${classPrefix}-text-${props.size}` : null,
+          props.fill ? `${classPrefix}-text-${props.fill}` : null,
+          (props.fill === "outline" || props.fill === "none") && props.color
+            ? `${classPrefix}-text-fill-${props.color}`
             : null,
           {
-            [`m-button-text-disabled`]: props.disabled,
+            [`${classPrefix}-text-disabled`]: props.disabled,
           }
         )}
       >
         {props.children}
       </Text>
     </TaroButton>
-  )
-}
-export default TmButton
+  );
+};
+export default TmButton;
