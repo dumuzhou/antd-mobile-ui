@@ -1,4 +1,5 @@
 import React from 'react'
+// 忽略，使用时引入antd-mobile-ui即可
 import { Button, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import useHref from '../../../hooks/useHref'
@@ -8,55 +9,66 @@ export default () => {
   return (
     <>
       <DemoBlock title='填充模式'>
-        <Space wrap>
-          <Button color='primary' fill='solid'>
+        <Space>
+          <Button
+            color='primary'
+            fill='solid'
+            onClick={() => {
+              console.log('点击事件')
+            }}
+          >
             Solid
           </Button>
-          <Button color='primary' fill='outline'>
+          <Button color='success' fill='outline'>
             Outline
           </Button>
-          <Button color='primary' fill='none'>
+          <Button color='success' fill='none'>
             None
           </Button>
         </Space>
       </DemoBlock>
-
-      <DemoBlock title='块级按钮'>
-        <Button block color='primary' size='large'>
-          Block Button
-        </Button>
-      </DemoBlock>
-
       <DemoBlock title='按钮尺寸'>
-        <Space wrap align='center'>
-          <Button size='mini' color='primary'>
+        <Space>
+          <Button color='primary' size='mini'>
             Mini
           </Button>
-          <Button size='small' color='primary'>
+          <Button color='primary' size='small'>
             Small
           </Button>
-          <Button size='middle' color='primary'>
-            Middle
-          </Button>
-          <Button size='large' color='primary'>
+          <Button color='primary'>Middle</Button>
+          <Button color='primary' size='large'>
             Large
           </Button>
         </Space>
       </DemoBlock>
-
       <DemoBlock title='语义按钮'>
         <Space wrap>
-          <Button
-            onClick={() => {
-              alert('hello.')
-            }}
-          >
-            Default
-          </Button>
+          <Button>Default</Button>
           <Button color='primary'>Primary</Button>
-          <Button color='success'>Success</Button>
-          <Button color='danger'>Danger</Button>
-          <Button color='warning'>Warning</Button>
+          <Button color='success'>success</Button>
+          <Button color='warning'>warning</Button>
+          <Button color='danger'>danger</Button>
+        </Space>
+      </DemoBlock>
+      <DemoBlock title='形状'>
+        <Space wrap>
+          <Button shape='default' color='primary'>
+            Default Button
+          </Button>
+          <Button shape='rounded' color='primary'>
+            Rounded Button
+          </Button>
+          <Button shape='rectangular' color='primary'>
+            Rectangular Button
+          </Button>
+        </Space>
+      </DemoBlock>
+      <DemoBlock title='禁用状态'>
+        <Space>
+          <Button disabled>Default</Button>
+          <Button shape='default' color='primary' disabled>
+            Default Button
+          </Button>
         </Space>
       </DemoBlock>
     </>
