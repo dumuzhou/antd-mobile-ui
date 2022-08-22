@@ -1,39 +1,25 @@
 import React from 'react'
-import { Divider } from 'antd-mobile'
+// 忽略，使用时引入antd-mobile-ui即可
+import { Divider, Button, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import useHref from '../../../hooks/useHref'
 
 export default () => {
+  useHref()
   return (
     <>
       <DemoBlock title='基础分割线'>
-        <Divider />
+        <Divider></Divider>
       </DemoBlock>
-
       <DemoBlock title='带内容的分割线'>
         <Divider>默认内容在中间</Divider>
-        <Divider contentPosition='left'>左侧内容</Divider>
-        <Divider contentPosition='right'>右侧内容</Divider>
-      </DemoBlock>
-
-      <DemoBlock title='自定义样式'>
-        <Divider
-          style={{
-            color: '#1677ff',
-            borderColor: '#1677ff',
-            borderStyle: 'dashed',
-          }}
-        >
-          自定义样式
-        </Divider>
       </DemoBlock>
       <DemoBlock title='竖向分割线'>
-        <>
-          Text
-          <Divider direction='vertical' />
-          <a href='#'>Link</a>
-          <Divider direction='vertical' />
-          <a href='#'>Link</a>
-        </>
+        <Space>
+          <Button size='mini'>按钮</Button>
+          <Divider direction='vertical'></Divider>
+          <Button size='mini'>按钮</Button>
+        </Space>
       </DemoBlock>
     </>
   )
