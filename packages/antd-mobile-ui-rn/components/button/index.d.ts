@@ -1,12 +1,21 @@
-import './index.less';
+import "./index.less";
 export declare type ButtonProps = {
-    color?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
+    color?: "default" | "primary" | "success" | "warning" | "danger";
     disabled?: boolean;
-    fill?: 'solid' | 'outline' | 'none';
-    shape?: 'default' | 'rounded' | 'rectangular';
-    size?: 'mini' | 'small' | 'middle' | 'large';
+    fill?: "solid" | "outline" | "none";
+    shape?: "default" | "rounded" | "rectangular";
+    size?: "mini" | "small" | "middle" | "large";
     onClick?: Function;
     children?: any;
+    scope?: "userInfo" | "phoneNumber";
+    onGetUserInfo?: Function;
+    onGetAuthorize?: Function;
+    onGetPhoneNumber?: Function;
+    onGetRealNameAuthInfo?: Function;
+    onOpenSetting?: Function;
+    onLaunchApp?: Function;
+    onChooseAvatar?: Function;
+    onContact?: Function;
 };
 declare const TmButton: (p: ButtonProps) => JSX.Element;
 export default TmButton;

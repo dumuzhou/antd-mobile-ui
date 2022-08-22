@@ -1,6 +1,8 @@
 @import "../../style/index.less";
-.m-button {
-  /* #ifdef weapp */
+
+@class-prefix-button: ~"adm-button";
+.@{class-prefix-button} {
+  /* #ifndef rn */
   &::after {
     opacity: 0;
   }
@@ -44,22 +46,37 @@
   &-color {
     &-default {
       background-color: @--adm-color-white;
+      /* #ifndef rn */
+      background-color: @--adm-color-white !important;
+      /* #endif */
       border-color: @--adm-color-border;
     }
     &-primary {
       background-color: @--adm-color-primary;
+      /* #ifndef rn */
+      background-color: @--adm-color-primary !important;
+      /* #endif */
       border-color: @--adm-color-primary;
     }
     &-success {
       background-color: @--adm-color-success;
+      /* #ifndef rn */
+      background-color: @--adm-color-success !important;
+      /* #endif */
       border-color: @--adm-color-success;
     }
     &-warning {
       background-color: @--adm-color-warning;
+      /* #ifndef rn */
+      background-color: @--adm-color-warning !important;
+      /* #endif */
       border-color: @--adm-color-warning;
     }
     &-danger {
       background-color: @--adm-color-danger;
+      /* #ifndef rn */
+      background-color: @--adm-color-danger !important;
+      /* #endif */
       border-color: @--adm-color-danger;
     }
   }
@@ -84,9 +101,15 @@
     }
     &-outline {
       background-color: @--adm-color-white;
+      /* #ifndef rn */
+      background-color: @--adm-color-white !important;
+      /* #endif */
     }
     &-none {
       background-color: @--adm-color-white;
+      /* #ifndef rn */
+      background-color: @--adm-color-white !important;
+      /* #endif */
       border-color: @--adm-color-white;
     }
   }
@@ -98,7 +121,9 @@
 
   &-text {
     font-size: @--adm-font-size-9;
+    /* #ifndef rn */
     line-height: 1;
+    /* #endif */
     &-mini {
       font-size: @--adm-font-size-5;
     }

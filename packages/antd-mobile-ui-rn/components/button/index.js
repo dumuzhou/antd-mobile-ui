@@ -1,31 +1,36 @@
-import classnames from 'classnames';
-import React from 'react';
-import { Button as TaroButton, View, Text } from '@tarojs/components';
+import classnames from "classnames";
+import React from "react";
+import { Button as TaroButton, View, Text } from "@tarojs/components";
 //import { AmButtonProps, AmButtonState } from "../../../types/button";
-import './index.less';
+import "./index.less";
+const classPrefix = `adm-button`;
 const defaultProps = {
-    color: 'default',
+    color: "default",
     disabled: false,
-    fill: 'solid',
-    shape: 'default',
-    size: 'middle',
+    fill: "solid",
+    shape: "default",
+    size: "middle",
 };
 const TmButton = function (p) {
     const props = { ...defaultProps, ...p };
-    return (<TaroButton className={classnames('m-button', props.color ? `m-button-color-${props.color}` : null, props.size ? `m-button-${props.size}` : null, props.shape ? `m-button-${props.shape}` : null, props.fill ? `m-button-fill-${props.fill}` : null, props.disabled ? `m-button-${props.disabled}` : null, {
-            [`m-button-disabled`]: props.disabled,
-        })} onClick={() => {
+    return (<TaroButton className={classnames(`${classPrefix}`, props.color ? `${classPrefix}-color-${props.color}` : null, props.size ? `${classPrefix}-${props.size}` : null, props.shape ? `${classPrefix}-${props.shape}` : null, props.fill ? `${classPrefix}-fill-${props.fill}` : null, props.disabled ? `${classPrefix}-${props.disabled}` : null, {
+            [`${classPrefix}-disabled`]: props.disabled,
+        })} onClick={(e) => {
             if (props.onClick) {
-                props.onClick();
+                props.onClick(e);
+            }
+        }} onGetUserInfo={(e) => {
+            if (props.onGetUserInfo) {
+                props.onGetUserInfo(e);
             }
         }} hoverStyle={{
             opacity: 0.6,
         }} disabled={props.disabled}>
-      {props.disabled && <View className='m-button-disabled'></View>}
-      <Text className={classnames('m-button-text', props.color ? `m-button-text-${props.color}` : null, props.size ? `m-button-text-${props.size}` : null, props.fill ? `m-button-text-${props.fill}` : null, (props.fill === 'outline' || props.fill === 'none') && props.color
-            ? `m-button-text-fill-${props.color}`
+      {props.disabled && <View className={`${classPrefix}-disabled`}></View>}
+      <Text className={classnames(`${classPrefix}-text`, props.color ? `${classPrefix}-text-${props.color}` : null, props.size ? `${classPrefix}-text-${props.size}` : null, props.fill ? `${classPrefix}-text-${props.fill}` : null, (props.fill === "outline" || props.fill === "none") && props.color
+            ? `${classPrefix}-text-fill-${props.color}`
             : null, {
-            [`m-button-text-disabled`]: props.disabled,
+            [`${classPrefix}-text-disabled`]: props.disabled,
         })}>
         {props.children}
       </Text>
