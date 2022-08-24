@@ -21,10 +21,14 @@
     height: 1px;
     flex: 1;
     background-color: @--adm-color-border;
+    /* #ifndef rn */
+    line-height: @--adm-font-size-6;
+    /* #endif */
   }
   &-texts {
     margin-left: 32px;
     margin-right: 32px;
+    .center();
   }
   &-text {
     font-size: @--adm-font-size-6;

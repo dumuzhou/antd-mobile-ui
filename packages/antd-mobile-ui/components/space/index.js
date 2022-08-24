@@ -15,7 +15,11 @@ const TmButton = function (p) {
     return (React.createElement(View, { className: classnames(`${classPrefix}`, props.justify ? `${classPrefix}-justify-${props.justify}` : null, props.align ? `${classPrefix}-align-${props.align}` : null, {
             [`${classPrefix}-vertical`]: props.direction === "vertical",
             [`${classPrefix}-wrap`]: props.wrap,
-        }) }, React.Children.map(props.children, (child) => {
+        }), onClick: (e) => {
+            if (props.onClick) {
+                props.onClick(e);
+            }
+        } }, React.Children.map(props.children, (child) => {
         return (child !== null &&
             child !== undefined && (React.createElement(View, { className: classnames(`${classPrefix}-item`, {
                 [`${classPrefix}-item-wrap`]: props.wrap,

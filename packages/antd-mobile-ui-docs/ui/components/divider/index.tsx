@@ -20,7 +20,7 @@ const Divider = function (p: ButtonProps) {
   console.log("child");
   const props = { ...defaultProps, ...p };
   console.log(props.children);
-  if (p.direction === "vertical") {
+  if (props.direction === "vertical") {
     return (
       <View
         className={classnames(`${classPrefix}`, `${classPrefix}-ver`)}

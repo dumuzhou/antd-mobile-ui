@@ -14,6 +14,7 @@ export type SpaceProps = {
   align?: "start" | "center" | "end" | "stretch";
   wrap?: boolean;
   children?: any;
+  onClick?: Function;
 };
 const defaultProps: SpaceProps = {
   direction: "horizontal",
@@ -34,6 +35,11 @@ const TmButton = function (p: SpaceProps) {
           [`${classPrefix}-wrap`]: props.wrap,
         }
       )}
+      onClick={(e) => {
+        if (props.onClick) {
+          props.onClick(e);
+        }
+      }}
     >
       {React.Children.map(props.children, (child) => {
         return (

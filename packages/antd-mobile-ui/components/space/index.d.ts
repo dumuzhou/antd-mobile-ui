@@ -5,6 +5,7 @@ export declare type SpaceProps = {
     align?: "start" | "center" | "end" | "stretch";
     wrap?: boolean;
     children?: any;
+    onClick?: Function;
 };
 declare const TmButton: (p: SpaceProps) => JSX.Element;
 export default TmButton;

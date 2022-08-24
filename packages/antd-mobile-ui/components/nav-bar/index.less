@@ -1,0 +1,50 @@
+@import "../../style/index.less";
+
+@class-prefix-nav-bar: ~"adm-nav-bar";
+.@{class-prefix-nav-bar} {
+  .flex2();
+  height: 90px;
+  position: relative;
+  &-left {
+    padding-left: 24px;
+    .flex();
+    &-ico {
+      width: 48px;
+      height: 48px;
+      margin-right: 8px;
+      overflow: hidden;
+    }
+    &-text {
+      font-size: @--adm-font-size-7;
+      color: @--adm-color-text;
+    }
+  }
+  &-title {
+    position: absolute;
+    left: 170px;
+    right: 170px;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    .center();
+    &-text {
+      font-size: @--adm-font-size-10;
+      color: @--adm-color-text;
+      .oneline();
+    }
+  }
+  &-right {
+    padding-right: 24px;
+    .flex();
+    &-ico {
+      width: 48px;
+      height: 48px;
+      margin-right: 8px;
+      overflow: hidden;
+    }
+    &-text {
+      font-size: @--adm-font-size-7;
+      color: @--adm-color-text;
+    }
+  }
+}

@@ -11,7 +11,7 @@ const Divider = function (p) {
     console.log("child");
     const props = Object.assign(Object.assign({}, defaultProps), p);
     console.log(props.children);
-    if (p.direction === "vertical") {
+    if (props.direction === "vertical") {
         return (React.createElement(View, { className: classnames(`${classPrefix}`, `${classPrefix}-ver`) }));
     }
     return (React.createElement(View, { className: classnames(`${classPrefix}`, props.children ? `${classPrefix}-cld` : null) },

@@ -9,10 +9,14 @@ import "./index.less";
 
 export type DemoBlockProps = {
   title?: string;
+  padding?: string;
+  background?: string;
   children?: React.ReactNode;
 };
 const defaultProps: DemoBlockProps = {
   title: "示例",
+  padding: "1",
+  background: "#ffffff",
 };
 const TmButton = function (p: DemoBlockProps) {
   const props = { ...defaultProps, ...p };
@@ -21,7 +25,16 @@ const TmButton = function (p: DemoBlockProps) {
       <View className={"m-demo-block-titles"}>
         <Text className="m-demo-block-title">{props.title}</Text>
       </View>
-      <View className={"m-demo-block-item"}>{props.children}</View>
+      <View
+        className={`m-demo-block-item ${
+          props.padding === "0" ? "m-demo-block-item-none" : ""
+        }`}
+        style={{
+          backgroundColor: props.background,
+        }}
+      >
+        {props.children}
+      </View>
     </View>
   );
 };
