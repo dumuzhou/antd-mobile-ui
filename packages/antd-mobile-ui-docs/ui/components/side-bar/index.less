@@ -1,0 +1,33 @@
+@import "../../style/index.less";
+
+@class-prefix-side-bar: ~"adm-side-bar";
+.@{class-prefix-side-bar} {
+  width: 200px;
+  &-item {
+    height: 90px;
+    background-color: @--adm-color-box;
+    .flex();
+    &-crt {
+      background-color: @--adm-color-white;
+    }
+    &-gang {
+      width: 4px;
+      height: 34px;
+      border-radius: 4px;
+      &-crt {
+        background-color: @--adm-color-primary;
+      }
+    }
+    &-wrap {
+      flex: 1;
+      .center();
+    }
+    &-text {
+      font-size: 28px;
+      color: @--adm-color-text;
+      &-crt {
+        color: @--adm-color-primary;
+      }
+    }
+  }
+}
