@@ -3,10 +3,6 @@
 .@{class-prefix-button} {
   display: flex;
   flex-direction: row;
-  &-vertical {
-    flex-direction: column;
-    align-items: flex-start;
-  }
   justify-content: flex-start;
   &-justify {
     &-center {
@@ -48,6 +44,12 @@
     }
     &-vertical {
       margin-bottom: 16px;
+      margin-right: 0;
     }
+  }
+
+  &-vertical {
+    flex-direction: column;
+    /*align-items: stretch;*/
   }
 }

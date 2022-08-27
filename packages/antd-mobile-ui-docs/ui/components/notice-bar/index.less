@@ -1,0 +1,50 @@
+@import "../../style/index.less";
+
+@class-prefix-notice-bar: ~"adm-notice-bar";
+.@{class-prefix-notice-bar} {
+  height: 74px;
+  padding-left: 24px;
+  padding-right: 24px;
+  .flex2();
+  // color
+  background-color: #ababab;
+  &-alert {
+    background-color: #fff9ed;
+  }
+  &-error {
+    background-color: #ff3b30;
+  }
+  &-info {
+    background-color: #d0e4ff;
+  }
+
+  &-hide {
+    position: absolute;
+    left: 9999px;
+  }
+
+  &-wrap {
+    .flex();
+  }
+  &-ico {
+    width: 36px;
+    height: 36px;
+    .center();
+    margin-right: 14px;
+  }
+  &-text {
+    color: @--adm-color-white;
+    font-size: @--adm-font-size-7;
+    &-alert {
+      color: #ff6010;
+    }
+    &-info {
+      color: #1677ff;
+    }
+  }
+  &-ico1 {
+    width: 38px;
+    height: 38px;
+    .center();
+  }
+}

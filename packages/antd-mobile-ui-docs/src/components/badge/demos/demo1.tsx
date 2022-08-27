@@ -1,61 +1,40 @@
 import React from 'react'
-import { Badge, Space } from 'antd-mobile'
+// 忽略，使用时引入antd-mobile-ui即可
+import { Badge, Space, Button } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import useHref from '../../../hooks/useHref'
 
 import styles from './demo1.less'
 
 export default () => {
+  useHref()
   return (
     <>
       <DemoBlock title='基础用法'>
-        <Space style={{ '--gap': '24px' }}>
-          <Badge content='5'>
-            <div className={styles.box} />
+        <Space direction='vertical'>
+          <Badge content='99+'>
+            <Button color='primary' fill='solid'>
+              Solid
+            </Button>
           </Badge>
           <Badge content='新'>
-            <div className={styles.box} />
+            <Button color='primary' fill='solid'>
+              Solid
+            </Button>
           </Badge>
+
           <Badge content={Badge.dot}>
-            <div className={styles.box} />
+            <Button color='primary' fill='solid'>
+              Solid
+            </Button>
           </Badge>
         </Space>
-      </DemoBlock>
-
-      <DemoBlock title='带边框'>
-        <Badge content='更新啦' bordered>
-          <div className={`${styles.box} ${styles.dark}`} />
-        </Badge>
       </DemoBlock>
 
       <DemoBlock title='独立使用'>
-        <Space>
-          <Badge content='99+' />
-          <Badge content='新消息!' />
-        </Space>
-      </DemoBlock>
-
-      <DemoBlock title='自定义颜色和偏移量'>
-        <Space style={{ '--gap': '24px' }}>
-          <Badge
-            color='#108ee9'
-            content={Badge.dot}
-            style={{ '--right': '100%', '--top': '100%' }}
-          >
-            <div className={styles.box} />
-          </Badge>
-          <Badge
-            color='#87d068'
-            content={Badge.dot}
-            style={{ '--right': '100%' }}
-          >
-            <div className={styles.box} />
-          </Badge>
-          <Badge content={Badge.dot}>
-            <div className={styles.box} />
-          </Badge>
-          <Badge color='orange' content={Badge.dot} style={{ '--top': '100%' }}>
-            <div className={styles.box} />
-          </Badge>
+        <Space direction='vertical'>
+          <Badge content='99+'></Badge>
+          <Badge content='新消息来了!'></Badge>
         </Space>
       </DemoBlock>
     </>

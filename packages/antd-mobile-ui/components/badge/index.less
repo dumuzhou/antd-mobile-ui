@@ -1,0 +1,41 @@
+@import "../../style/index.less";
+
+@class-prefix-badge: ~"adm-badge";
+.@{class-prefix-badge} {
+  position: relative;
+  &-box {
+    &-ab {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: -15px;
+      width: 200%;
+    }
+    height: 30px;
+    .center();
+    &-dot {
+      height: 20px;
+      top: -10px;
+    }
+  }
+  &-wrap {
+    border-radius: 999px;
+    height: 30px;
+    min-width: 32px;
+    padding-left: 8px;
+    padding-right: 8px;
+    .center();
+    background-color: #ff411c;
+    &-dot {
+      height: 20px;
+      min-width: 20px;
+      width: 20px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  &-text {
+    color: @--adm-color-white;
+    font-size: 18px;
+  }
+}
