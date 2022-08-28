@@ -30,17 +30,17 @@ export const navs = {
       title: '组件',
       path: '/zh/components',
     },
-    {
-      title: '资源',
-      path: '/zh/resources',
-    },
-    {
-      title: '发布日志',
-      path: 'https://github.com/ant-design/ant-design-mobile/releases',
-    },
+    //{
+    //title: '资源',
+    //path: '/zh/resources',
+    //},
+    //{
+    //title: '发布日志',
+    //path: 'https://github.com/ant-design/ant-design-mobile/releases',
+    //},
     {
       title: 'GitHub',
-      path: 'https://github.com/ant-design/ant-design-mobile',
+      path: 'https://github.com/dumuzhou/antd-mobile-ui',
     },
   ],
 }
