@@ -9,8 +9,6 @@ const defaultProps = {};
 export const Badge = function (p) {
     const props = { ...defaultProps, ...p };
     const isDot = props.content === dot;
-    console.log("isDot");
-    console.log(isDot);
     return (<View className={classnames(`${classPrefix}`)}>
       <View className={classnames(`${classPrefix}-box`, isDot ? `${classPrefix}-box-dot` : null, !!props.children ? `${classPrefix}-box-ab` : null)}>
         <View className={classnames(`${classPrefix}-wrap`, isDot ? `${classPrefix}-wrap-dot` : null)}>

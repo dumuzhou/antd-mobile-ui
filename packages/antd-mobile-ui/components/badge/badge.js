@@ -9,8 +9,6 @@ const defaultProps = {};
 export const Badge = function (p) {
     const props = Object.assign(Object.assign({}, defaultProps), p);
     const isDot = props.content === dot;
-    console.log("isDot");
-    console.log(isDot);
     return (React.createElement(View, { className: classnames(`${classPrefix}`) },
         React.createElement(View, { className: classnames(`${classPrefix}-box`, isDot ? `${classPrefix}-box-dot` : null, !!props.children ? `${classPrefix}-box-ab` : null) },
             React.createElement(View, { className: classnames(`${classPrefix}-wrap`, isDot ? `${classPrefix}-wrap-dot` : null) }, !isDot && !!props.content && (React.createElement(Text, { className: `${classPrefix}-text` }, props.content)))),

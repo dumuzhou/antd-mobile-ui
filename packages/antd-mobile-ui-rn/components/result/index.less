@@ -1,0 +1,35 @@
+@import "../../style/index.less";
+
+@class-prefix-result: ~"adm-result";
+.@{class-prefix-result} {
+  padding: 64px 24px;
+  .rflex();
+
+  align-items: center;
+  &-icon {
+    width: 128px;
+    height: 128px;
+    margin-bottom: 50px;
+    .center();
+  }
+  &-titles {
+    height: @--adm-font-size-10;
+    .center();
+  }
+  &-title {
+    font-size: @--adm-font-size-10;
+    color: @--adm-color-text;
+  }
+  &-infos {
+    margin-top: 30px;
+  }
+  &-info {
+    font-size: @--adm-font-size-5;
+    color: @--adm-color-weak;
+    line-height: 36px;
+    text-align: center;
+    /* #ifndef rn */
+    display: block;
+    /* #endif */
+  }
+}

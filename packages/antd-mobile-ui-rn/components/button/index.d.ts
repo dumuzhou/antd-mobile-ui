@@ -11,10 +11,7 @@ export declare type ButtonProps = {
     onGetUserInfo?: Function;
     onGetAuthorize?: Function;
     onGetPhoneNumber?: Function;
-    onGetRealNameAuthInfo?: Function;
     onOpenSetting?: Function;
-    onLaunchApp?: Function;
-    onChooseAvatar?: Function;
     onContact?: Function;
 };
 declare const TmButton: (p: ButtonProps) => JSX.Element;

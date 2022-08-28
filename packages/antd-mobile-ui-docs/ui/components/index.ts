@@ -5,5 +5,9 @@ export { default as NavBar } from "./nav-bar";
 export { default as SideBar } from "./side-bar";
 export { default as NoticeBar } from "./notice-bar";
 export { default as Badge } from "./badge";
+export { default as Result } from "./result";
+export { default as Empty } from "./empty";
+export { default as ProgressBar } from "./progress-bar";
+export { default as ErrorBlock } from "./error-block";
 
 export { default as DemoBlock } from "./demo-block";

@@ -19,8 +19,6 @@ const defaultProps: BadgeProps = {};
 export const Badge = function (p: BadgeProps) {
   const props = { ...defaultProps, ...p };
   const isDot = props.content === dot;
-  console.log("isDot");
-  console.log(isDot);
   return (
     <View className={classnames(`${classPrefix}`)}>
       <View

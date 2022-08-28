@@ -1,6 +1,6 @@
 import classnames from "classnames";
 import PropTypes, { InferProps } from "prop-types";
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import { Button as TaroButton, Form, View, Text } from "@tarojs/components";
 import { ButtonProps as ButtonPropsNative } from "@tarojs/components/types/Button";
 import Taro from "@tarojs/taro";
@@ -22,10 +22,10 @@ export type ButtonProps = {
   onGetUserInfo?: Function;
   onGetAuthorize?: Function;
   onGetPhoneNumber?: Function;
-  onGetRealNameAuthInfo?: Function;
+  //onGetRealNameAuthInfo?: Function;
   onOpenSetting?: Function;
-  onLaunchApp?: Function;
-  onChooseAvatar?: Function;
+  //onLaunchApp?: Function;
+  //onChooseAvatar?: Function;
   onContact?: Function;
 };
 const defaultProps: ButtonProps = {
@@ -51,21 +51,33 @@ const TmButton = function (p: ButtonProps) {
         }
       )}
       onClick={(e) => {
-        if (props.onClick) {
-          props.onClick(e);
+        if (!props.disabled) {
+          props.onClick?.(e);
         }
       }}
       onGetUserInfo={(e) => {
-        if (props.onGetUserInfo) {
-          props.onGetUserInfo(e);
-        }
+        props.onGetUserInfo?.(e);
+      }}
+      onContact={(e) => {
+        props.onContact?.(e);
+      }}
+      onOpenSetting={(e) => {
+        props.onOpenSetting?.(e);
+      }}
+      onGetPhoneNumber={(e) => {
+        props.onGetPhoneNumber?.(e);
+      }}
+      onGetAuthorize={(e) => {
+        props.onGetAuthorize?.(e);
       }}
       hoverStyle={{
         opacity: 0.6,
       }}
       disabled={props.disabled}
     >
-      {props.disabled && <View className={`${classPrefix}-disabled`}></View>}
+      {props.disabled && (
+        <View className={`${classPrefix}-disabled`} onClick={() => {}}></View>
+      )}
       <Text
         className={classnames(
           `${classPrefix}-text`,

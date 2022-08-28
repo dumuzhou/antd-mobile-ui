@@ -1,0 +1,35 @@
+@import "../../style/index.less";
+
+@class-prefix-error-block: ~"adm-error-block";
+.@{class-prefix-error-block} {
+  padding: 64px 24px;
+  .rflex();
+
+  align-items: center;
+  &-icon {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 50px;
+    .center();
+  }
+  &-titles {
+    height: @--adm-font-size-10;
+    .center();
+  }
+  &-title {
+    font-size: @--adm-font-size-7;
+    color: @--adm-color-weak;
+  }
+  &-infos {
+    margin-top: 16px;
+  }
+  &-info {
+    font-size: @--adm-font-size-4;
+    color: @--adm-color-weak;
+    line-height: 36px;
+    text-align: center;
+    /* #ifndef rn */
+    display: block;
+    /* #endif */
+  }
+}

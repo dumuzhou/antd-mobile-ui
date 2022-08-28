@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+// 忽略，使用时引入antd-mobile-ui即可
 import { Button, ProgressBar, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import useHref from '../../../hooks/useHref'
 
 export default () => {
+  useHref()
   const [percent, setPercent] = useState<number>(20)
   return (
     <>
@@ -34,32 +37,11 @@ export default () => {
 
       <DemoBlock title='显示进度文字'>
         <Space direction='vertical' block>
-          <ProgressBar percent={50} text />
-          <ProgressBar
-            percent={50}
-            text='已完成 3/6 步'
-            style={{
-              '--text-width': '80px',
-            }}
-          />
+          <ProgressBar percent={50} text='50%' />
         </Space>
       </DemoBlock>
-
-      <DemoBlock title='指定线条宽度'>
-        <Space direction='vertical' block>
-          <ProgressBar
-            percent={50}
-            style={{
-              '--track-width': '4px',
-            }}
-          />
-          <ProgressBar
-            percent={80}
-            style={{
-              '--track-width': '12px',
-            }}
-          />
-        </Space>
+      <DemoBlock title='直角的进度条'>
+        <ProgressBar percent={50} rounded={false} />
       </DemoBlock>
     </>
   )

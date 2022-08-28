@@ -1,0 +1,33 @@
+@import "../../style/index.less";
+
+@class-prefix-progress-bar: ~"adm-progress-bar";
+.@{class-prefix-progress-bar} {
+  .flex();
+  &-wrap {
+    flex: 1;
+    height: 16px;
+    background-color: #e5e5e5;
+    position: relative;
+    &-radius {
+      border-radius: 999px;
+    }
+    &-box {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background-color: @--adm-color-primary;
+      &-radius {
+        border-radius: 999px;
+      }
+    }
+  }
+  &-texts {
+    margin-left: 16px;
+    .center();
+  }
+  &-text {
+    color: @--adm-color-weak;
+    font-size: @--adm-font-size-5;
+  }
+}

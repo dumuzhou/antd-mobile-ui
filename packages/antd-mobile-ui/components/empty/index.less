@@ -1,0 +1,26 @@
+@import "../../style/index.less";
+
+@class-prefix-empty: ~"adm-empty";
+.@{class-prefix-empty} {
+  padding: 48px 24px;
+  .rflex();
+
+  align-items: center;
+  &-icon {
+    width: 128px;
+    height: 128px;
+    .center();
+  }
+  &-infos {
+    margin-top: 16px;
+  }
+  &-info {
+    font-size: @--adm-font-size-6;
+    color: @--adm-color-light;
+    line-height: 36px;
+    text-align: center;
+    /* #ifndef rn */
+    display: block;
+    /* #endif */
+  }
+}
