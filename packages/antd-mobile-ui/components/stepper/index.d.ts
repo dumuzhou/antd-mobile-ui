@@ -1,7 +1,5 @@
-import React from "react";
-import { NativeProps } from "../utils/native-props";
 import "./index.less";
-export declare type ButtonProps = {
+export declare type StepperProps = {
     color?: "default" | "primary" | "success" | "warning" | "danger";
     disabled?: boolean;
     fill?: "solid" | "outline" | "none";
@@ -15,6 +13,6 @@ export declare type ButtonProps = {
     onGetPhoneNumber?: Function;
     onOpenSetting?: Function;
     onContact?: Function;
-} & NativeProps<"--border-color">;
-declare const TmButton: (p: ButtonProps) => React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-export default TmButton;
+};
+declare const Stepper: (p: StepperProps) => JSX.Element;
+export default Stepper;

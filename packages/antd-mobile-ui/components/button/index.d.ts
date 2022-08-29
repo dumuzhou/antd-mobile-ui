@@ -1,3 +1,5 @@
+import React from "react";
+import { NativeProps } from "../utils/native-props";
 import "./index.less";
 export declare type ButtonProps = {
     color?: "default" | "primary" | "success" | "warning" | "danger";
@@ -13,6 +15,6 @@ export declare type ButtonProps = {
     onGetPhoneNumber?: Function;
     onOpenSetting?: Function;
     onContact?: Function;
-};
-declare const TmButton: (p: ButtonProps) => JSX.Element;
+} & NativeProps<"--border-color">;
+declare const TmButton: (p: ButtonProps) => React.ReactElement<any, string | React.JSXElementConstructor<any>>;
 export default TmButton;

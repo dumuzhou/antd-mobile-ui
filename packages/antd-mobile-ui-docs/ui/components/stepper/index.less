@@ -1,0 +1,19 @@
+@import "../../style/index.less";
+
+@class-prefix-stepper: ~"adm-stepper";
+.@{class-prefix-stepper} {
+  /*.flex();*/
+  &-dec {
+    margin: 0;
+    padding: 0;
+    width: 26px;
+    height: 2px;
+    position: relative;
+
+    /* #ifdef rn */
+    top: 4px;
+    /* #endif */
+
+    background-color: @--adm-color-primary;
+  }
+}

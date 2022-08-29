@@ -2,6 +2,8 @@ import classnames from "classnames";
 import PropTypes, { InferProps } from "prop-types";
 import React, { FC, ReactNode } from "react";
 import { Button as TaroButton, Form, View, Text } from "@tarojs/components";
+
+import { NativeProps, withNativeProps } from "../utils/native-props";
 import { ButtonProps as ButtonPropsNative } from "@tarojs/components/types/Button";
 import Taro from "@tarojs/taro";
 //import { AmButtonProps, AmButtonState } from "../../../types/button";
@@ -27,7 +29,7 @@ export type ButtonProps = {
   //onLaunchApp?: Function;
   //onChooseAvatar?: Function;
   onContact?: Function;
-};
+} & NativeProps<"--border-color">;
 const defaultProps: ButtonProps = {
   color: "default",
   disabled: false,
@@ -37,7 +39,9 @@ const defaultProps: ButtonProps = {
 };
 const TmButton = function (p: ButtonProps) {
   const props = { ...defaultProps, ...p };
-  return (
+  return withNativeProps(
+    props,
+
     <TaroButton
       className={classnames(
         `${classPrefix}`,
@@ -51,6 +55,8 @@ const TmButton = function (p: ButtonProps) {
         }
       )}
       onClick={(e) => {
+        console.log("类型");
+        console.log(typeof props.children);
         if (!props.disabled) {
           props.onClick?.(e);
         }
@@ -76,24 +82,27 @@ const TmButton = function (p: ButtonProps) {
       disabled={props.disabled}
     >
       {props.disabled && (
-        <View className={`${classPrefix}-disabled`} onClick={() => {}}></View>
+        <View className={`${classPrefix}-disabled`} onClick={(e) => {}}></View>
       )}
-      <Text
-        className={classnames(
-          `${classPrefix}-text`,
-          props.color ? `${classPrefix}-text-${props.color}` : null,
-          props.size ? `${classPrefix}-text-${props.size}` : null,
-          props.fill ? `${classPrefix}-text-${props.fill}` : null,
-          (props.fill === "outline" || props.fill === "none") && props.color
-            ? `${classPrefix}-text-fill-${props.color}`
-            : null,
-          {
-            [`${classPrefix}-text-disabled`]: props.disabled,
-          }
-        )}
-      >
-        {props.children}
-      </Text>
+      {typeof props.children === "string" && (
+        <Text
+          className={classnames(
+            `${classPrefix}-text`,
+            props.color ? `${classPrefix}-text-${props.color}` : null,
+            props.size ? `${classPrefix}-text-${props.size}` : null,
+            props.fill ? `${classPrefix}-text-${props.fill}` : null,
+            (props.fill === "outline" || props.fill === "none") && props.color
+              ? `${classPrefix}-text-fill-${props.color}`
+              : null,
+            {
+              [`${classPrefix}-text-disabled`]: props.disabled,
+            }
+          )}
+        >
+          {props.children}
+        </Text>
+      )}
+      {typeof props.children === "object" && props.children}
     </TaroButton>
   );
 };

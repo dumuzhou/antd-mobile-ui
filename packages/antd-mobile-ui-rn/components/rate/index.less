@@ -1,0 +1,42 @@
+@import "../../style/index.less";
+
+@class-prefix-rate: ~"adm-rate";
+.@{class-prefix-rate} {
+  .flex();
+  &-item {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    .center();
+    position: relative;
+  }
+  &-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    overflow: hidden;
+    &-wrap {
+      width: 60px;
+      height: 60px;
+      .center();
+    }
+  }
+  &-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    overflow: hidden;
+    &-wrap {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 60px;
+      height: 60px;
+      .center();
+    }
+  }
+}

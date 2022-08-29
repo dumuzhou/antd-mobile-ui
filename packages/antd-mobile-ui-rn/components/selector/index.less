@@ -1,0 +1,69 @@
+@import "../../style/index.less";
+
+@class-prefix-selector: ~"adm-selector";
+.@{class-prefix-selector} {
+  .flex();
+  flex-wrap: wrap;
+  &-more {
+    overflow: hidden;
+    margin-right: -16px;
+  }
+  &-item {
+    position: relative;
+    padding: 16px 32px;
+    background-color: @--adm-color-box;
+    border-radius: 4px;
+    .center();
+    &-crt {
+      background-color: #e7f1ff;
+    }
+    &-auto {
+      margin-right: 20px;
+    }
+    &-two {
+      margin-right: 16px;
+      flex: 1;
+      min-width: 40%;
+      margin-bottom: 16px;
+    }
+  }
+  &-text {
+    font-size: @--adm-font-size-7;
+    color: @--adm-color-text;
+    &-crt {
+      color: @--adm-color-primary;
+    }
+
+    /* #ifndef rn */
+    display: block;
+    /* #endif */
+  }
+  &-checks {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /*padding-right: 1px;*/
+    /*padding-bottom: 1px;*/
+  }
+  &-check {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* #ifdef rn */
+    width: 0;
+    height: 0;
+    border-left-width: 40px;
+    border-left-color: transparent;
+    border-bottom-width: 28px;
+    border-bottom-color: @--adm-color-primary;
+    /* #endif */
+
+    /* #ifndef rn */
+    width: 0;
+    height: 0;
+    border-color: @--adm-color-primary transparent;
+    border-width: 0 0px 32px 46px;
+    border-style: solid;
+    /* #endif */
+  }
+}

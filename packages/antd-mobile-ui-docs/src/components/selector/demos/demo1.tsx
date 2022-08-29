@@ -1,9 +1,12 @@
 import React from 'react'
+// 忽略，使用时引入antd-mobile-ui即可
 import { Selector, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { options } from './options'
+import useHref from '../../../hooks/useHref'
 
 export default () => {
+  useHref()
   return (
     <>
       <DemoBlock title='单选'>
@@ -22,47 +25,13 @@ export default () => {
           onChange={(arr, extend) => console.log(arr, extend.items)}
         />
       </DemoBlock>
-
-      <DemoBlock title='两列布局'>
+      <DemoBlock title='不显示图标'>
         <Selector
-          columns={2}
           options={options}
-          defaultValue={['2', '3']}
-          multiple={true}
+          defaultValue={['1']}
+          showCheckMark={false}
+          onChange={(arr, extend) => console.log(arr, extend.items)}
         />
-      </DemoBlock>
-
-      <DemoBlock title='三列布局'>
-        <Selector
-          columns={3}
-          options={options}
-          defaultValue={['2', '3']}
-          multiple={true}
-        />
-      </DemoBlock>
-
-      <DemoBlock title='禁用状态'>
-        <Space block direction='vertical'>
-          <Selector options={options} defaultValue={['1']} disabled={true} />
-          <Selector
-            options={[
-              {
-                label: '选项一',
-                value: '1',
-              },
-              {
-                label: '选项二',
-                value: '2',
-                disabled: true,
-              },
-              {
-                label: '选项三',
-                value: '3',
-              },
-            ]}
-            defaultValue={['3']}
-          />
-        </Space>
       </DemoBlock>
     </>
   )

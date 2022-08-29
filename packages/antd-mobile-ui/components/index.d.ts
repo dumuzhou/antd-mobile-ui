@@ -9,4 +9,7 @@ export { default as Result } from "./result";
 export { default as Empty } from "./empty";
 export { default as ProgressBar } from "./progress-bar";
 export { default as ErrorBlock } from "./error-block";
+export { default as Stepper } from "./stepper";
+export { default as Selector } from "./selector";
+export { default as Rate } from "./rate";
 export { default as DemoBlock } from "./demo-block";

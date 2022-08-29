@@ -7,6 +7,13 @@ const codesandboxLink =
 
 export default () => {
   const { locale } = useContext(context)
+  setTimeout(() => {
+    let el = document.getElementsByClassName('__dumi-default-navbar-tool')
+    if (el.length) {
+      // @ts-ignore
+      el[0].style.display = 'none'
+    }
+  }, 0)
 
   function trans<T>(en: T, zh: T) {
     return locale === 'zh' ? zh : en

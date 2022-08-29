@@ -1,6 +1,7 @@
 import classnames from "classnames";
 import React from "react";
 import { Button as TaroButton, View, Text } from "@tarojs/components";
+import { withNativeProps } from "../utils/native-props";
 //import { AmButtonProps, AmButtonState } from "../../../types/button";
 import "./index.less";
 const classPrefix = `adm-button`;
@@ -13,9 +14,11 @@ const defaultProps = {
 };
 const TmButton = function (p) {
     const props = { ...defaultProps, ...p };
-    return (<TaroButton className={classnames(`${classPrefix}`, props.color ? `${classPrefix}-color-${props.color}` : null, props.size ? `${classPrefix}-${props.size}` : null, props.shape ? `${classPrefix}-${props.shape}` : null, props.fill ? `${classPrefix}-fill-${props.fill}` : null, props.disabled ? `${classPrefix}-${props.disabled}` : null, {
+    return withNativeProps(props, <TaroButton className={classnames(`${classPrefix}`, props.color ? `${classPrefix}-color-${props.color}` : null, props.size ? `${classPrefix}-${props.size}` : null, props.shape ? `${classPrefix}-${props.shape}` : null, props.fill ? `${classPrefix}-fill-${props.fill}` : null, props.disabled ? `${classPrefix}-${props.disabled}` : null, {
             [`${classPrefix}-disabled`]: props.disabled,
         })} onClick={(e) => {
+            console.log("类型");
+            console.log(typeof props.children);
             if (!props.disabled) {
                 props.onClick?.(e);
             }
@@ -32,14 +35,15 @@ const TmButton = function (p) {
         }} hoverStyle={{
             opacity: 0.6,
         }} disabled={props.disabled}>
-      {props.disabled && (<View className={`${classPrefix}-disabled`} onClick={() => { }}></View>)}
-      <Text className={classnames(`${classPrefix}-text`, props.color ? `${classPrefix}-text-${props.color}` : null, props.size ? `${classPrefix}-text-${props.size}` : null, props.fill ? `${classPrefix}-text-${props.fill}` : null, (props.fill === "outline" || props.fill === "none") && props.color
-            ? `${classPrefix}-text-fill-${props.color}`
-            : null, {
-            [`${classPrefix}-text-disabled`]: props.disabled,
-        })}>
-        {props.children}
-      </Text>
+      {props.disabled && (<View className={`${classPrefix}-disabled`} onClick={(e) => { }}></View>)}
+      {typeof props.children === "string" && (<Text className={classnames(`${classPrefix}-text`, props.color ? `${classPrefix}-text-${props.color}` : null, props.size ? `${classPrefix}-text-${props.size}` : null, props.fill ? `${classPrefix}-text-${props.fill}` : null, (props.fill === "outline" || props.fill === "none") && props.color
+                ? `${classPrefix}-text-fill-${props.color}`
+                : null, {
+                [`${classPrefix}-text-disabled`]: props.disabled,
+            })}>
+          {props.children}
+        </Text>)}
+      {typeof props.children === "object" && props.children}
     </TaroButton>);
 };
 export default TmButton;
