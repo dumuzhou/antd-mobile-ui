@@ -1,4 +1,6 @@
 import React from 'react'
+
+// 忽略，使用时引入antd-mobile-ui即可
 import { PageIndicator } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import useHref from '../../../hooks/useHref'

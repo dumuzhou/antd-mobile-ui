@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+
+// 忽略，使用时引入antd-mobile-ui即可
 import { Badge, TabBar } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import {

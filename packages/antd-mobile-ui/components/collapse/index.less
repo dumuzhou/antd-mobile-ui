@@ -1,0 +1,52 @@
+@import "../../style/index.less";
+
+@class-prefix-collapse: ~"adm-collapse";
+.@{class-prefix-collapse} {
+  &-item {
+  }
+  &-titles {
+    padding-left: 24px;
+  }
+  &-title {
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+    margin-bottom: -1px;
+    border-color: @--adm-color-border;
+    border-style: solid;
+    .flex;
+    justify-content: space-between;
+    &-icon {
+      width: 60px;
+      height: 60px;
+      margin-right: 24px;
+      .center();
+    }
+    &-text {
+      /* #ifndef rn */
+      display: block;
+      line-height: 1;
+      /* #endif */
+      font-size: @--adm-font-size-7;
+      color: @--adm-color-text;
+      &-crt {
+        color: @--adm-color-primary;
+      }
+    }
+  }
+  &-content {
+    padding: 24px;
+
+    &-text {
+      /* #ifndef rn */
+      display: block;
+      /* #endif */
+      line-height: 36px;
+      font-size: @--adm-font-size-5;
+      color: @--adm-color-weak;
+    }
+  }
+}

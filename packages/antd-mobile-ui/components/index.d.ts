@@ -17,4 +17,7 @@ export { default as Steps } from "./steps";
 export { default as PageIndicator } from "./page-indicator";
 export { default as Ellipsis } from "./ellipsis";
 export { default as Avatar } from "./avatar";
+export { default as TabBar } from "./tab-bar";
+export { default as Tabs } from "./tabs";
+export { default as Collapse } from "./collapse";
 export { default as DemoBlock } from "./demo-block";

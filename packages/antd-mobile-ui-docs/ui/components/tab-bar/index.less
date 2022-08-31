@@ -1,0 +1,35 @@
+@import "../../style/index.less";
+
+@class-prefix-tab-bar: ~"adm-tab-bar";
+.@{class-prefix-tab-bar} {
+  .flex;
+  &-item {
+    flex: 1 1;
+    min-height: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &-icon {
+      width: 48px;
+      height: 48px;
+      overflow: hidden;
+      .center();
+    }
+    &-texts {
+      margin-top: 4px;
+    }
+    &-text {
+      font-size: @--adm-font-size-3;
+      color: @--adm-color-weak;
+
+      /* #ifndef rn */
+      display: block;
+      line-height: 1;
+      /* #endif */
+      &-crt {
+        color: @--adm-color-primary;
+      }
+    }
+  }
+}

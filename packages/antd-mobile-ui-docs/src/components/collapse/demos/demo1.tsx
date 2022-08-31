@@ -1,8 +1,12 @@
 import React from 'react'
+
+// 忽略，使用时引入antd-mobile-ui即可
 import { Collapse } from 'antd-mobile'
 import { DemoBlock, lorem } from 'demos'
+import useHref from '../../../hooks/useHref'
 
 export default () => {
+  useHref()
   return (
     <>
       <DemoBlock title='基础用法' padding='0'>

@@ -1,5 +1,7 @@
 import { DemoBlock, DemoDescription } from 'demos'
 import React from 'react'
+
+// 忽略，使用时引入antd-mobile-ui即可
 import { Avatar, List, Space } from 'antd-mobile'
 import useHref from '../../../hooks/useHref'
 
