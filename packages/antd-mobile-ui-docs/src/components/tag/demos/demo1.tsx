@@ -1,24 +1,28 @@
 import React from 'react'
+// 忽略，使用时引入antd-mobile-ui即可
 import { Tag, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import useHref from '../../../hooks/useHref'
 
 export default () => {
+  useHref()
   return (
     <>
       <DemoBlock title='基础用法'>
-        <Tag>123</Tag>
+        <Space>
+          <Tag>123</Tag>
+        </Space>
       </DemoBlock>
-
       <DemoBlock title='线框标签'>
         <Space>
           <Tag color='primary' fill='outline'>
             Primary
           </Tag>
-          <Tag color='#87d068' fill='outline'>
-            #87d068
+          <Tag color='success' fill='outline'>
+            success
           </Tag>
-          <Tag color='#ff6430' fill='outline'>
-            #ff6430
+          <Tag color='danger' fill='outline'>
+            danger
           </Tag>
         </Space>
       </DemoBlock>
@@ -27,54 +31,15 @@ export default () => {
         <Space>
           <Tag color='default'>Default</Tag>
           <Tag color='primary'>测试</Tag>
-          <Tag color='success'>Success</Tag>
-          <Tag color='warning'>Warning</Tag>
-          <Tag color='danger'>Danger</Tag>
+          <Tag color='success'>success</Tag>
+          <Tag color='warning'>warning</Tag>
+          <Tag color='danger'>danger</Tag>
         </Space>
       </DemoBlock>
-
       <DemoBlock title='圆角标签'>
-        <Tag round color='#2db7f5'>
-          kongxin
-        </Tag>
-      </DemoBlock>
-
-      <DemoBlock title='自定义颜色'>
         <Space>
-          <Tag color='#2db7f5'>#2db7f5</Tag>
-          <Tag color='#87d068'>#87d068</Tag>
-          <Tag color='#108ee9'>#108ee9</Tag>
-        </Space>
-      </DemoBlock>
-
-      <DemoBlock title='通过 CSS 变量个性化'>
-        <Space>
-          <Tag
-            color='primary'
-            fill='outline'
-            style={{ '--border-radius': '6px' }}
-          >
-            Primary
-          </Tag>
-          <Tag
-            color='success'
-            fill='outline'
-            style={{ '--background-color': '#c8f7c5' }}
-          >
-            Success
-          </Tag>
-          <Tag
-            color='warning'
-            style={{ '--text-color': 'var(--adm-color-text)' }}
-          >
-            Warning
-          </Tag>
-          <Tag
-            color='danger'
-            fill='outline'
-            style={{ '--border-color': 'var(--adm-color-weak)' }}
-          >
-            Danger
+          <Tag round color='primary'>
+            kongxin
           </Tag>
         </Space>
       </DemoBlock>

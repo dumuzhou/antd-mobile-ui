@@ -1,0 +1,137 @@
+@import "../../style/index.less";
+
+@class-prefix-steps: ~"adm-steps";
+.@{class-prefix-steps} {
+  padding: 16px 0;
+  .flex();
+  &-vertical {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  &-item {
+    flex: 1 1;
+    &-vertical {
+      .flex();
+      align-items: stretch;
+      /*padding-bottom: 30px;*/
+      /*margin-bottom: -30px;*/
+    }
+    &-top {
+      height: 48px;
+      .flex();
+      &-vertical {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+      }
+      &-line {
+        height: 2px;
+        flex: 1 1;
+        &-vertical {
+          width: 2px;
+          height: 100%;
+        }
+
+        &-hide {
+          position: relative;
+          left: 9999px;
+        }
+        &-left {
+          &-finish {
+            background-color: @--adm-color-primary;
+          }
+          &-process {
+            background-color: @--adm-color-primary;
+          }
+          &-error {
+            background-color: @--adm-color-primary;
+          }
+          &-wait {
+            background-color: #e5e5e5;
+          }
+        }
+        &-right {
+          &-finish {
+            background-color: @--adm-color-primary;
+          }
+          &-process {
+            background-color: #e5e5e5;
+          }
+          &-error {
+            background-color: #e5e5e5;
+          }
+          &-wait {
+            background-color: #e5e5e5;
+          }
+        }
+      }
+      &-point {
+        width: 16px;
+        height: 16px;
+        border-radius: 16px;
+        &-finish {
+          background-color: @--adm-color-primary;
+        }
+        &-process {
+          background-color: @--adm-color-primary;
+        }
+
+        &-wait {
+          background-color: #e5e5e5;
+        }
+        &-error {
+          background-color: red;
+        }
+      }
+    }
+    &-wrap {
+      padding: 4px 16px 0;
+      &-vertical {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        &-info {
+          position: relative;
+          top: 18px;
+        }
+      }
+    }
+    &-title {
+      .center();
+      &-vertical {
+        justify-content: flex-start;
+      }
+      &-text {
+        /* #ifndef rn */
+        display: block;
+        line-height: 1;
+        /* #endif */
+        font-size: @--adm-font-size-5;
+        &-finish {
+          color: @--adm-color-text;
+        }
+        &-process {
+          color: @--adm-color-primary;
+        }
+
+        &-wait {
+          color: @--adm-color-weak;
+        }
+        &-error {
+          color: red;
+        }
+      }
+    }
+    &-info {
+      margin-top: 8px;
+      .center();
+      &-text {
+        /* #ifndef rn */
+        display: block;
+        line-height: 1;
+        /* #endif */
+        font-size: @--adm-font-size-4;
+        color: @--adm-color-weak;
+      }
+    }
+  }
+}

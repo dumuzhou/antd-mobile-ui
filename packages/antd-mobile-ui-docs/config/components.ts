@@ -22,7 +22,7 @@ export const components = {
     '/components/collapse',
     '/components/ellipsis',
     //'/components/floating-panel',
-    '/components/image',
+    //'/components/image',
     //'/components/image-viewer',
     //'/components/infinite-scroll',
     //'/components/list',

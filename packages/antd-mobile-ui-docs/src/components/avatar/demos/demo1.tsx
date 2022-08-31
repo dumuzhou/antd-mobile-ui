@@ -1,8 +1,10 @@
 import { DemoBlock, DemoDescription } from 'demos'
 import React from 'react'
 import { Avatar, List, Space } from 'antd-mobile'
+import useHref from '../../../hooks/useHref'
 
 export default () => {
+  useHref()
   return (
     <>
       <DemoBlock title='基础用法'>
@@ -17,29 +19,7 @@ export default () => {
       <DemoBlock title='占位头像'>
         <Space block direction='vertical'>
           <Avatar src='' />
-          <DemoDescription>
-            如果你不传图片，或者图片加载失败，那么会显示一个默认的图像
-          </DemoDescription>
         </Space>
-      </DemoBlock>
-
-      <DemoBlock title='自定义尺寸'>
-        <Space block wrap>
-          <Avatar src={demoAvatarImages[0]} style={{ '--size': '32px' }} />
-          <Avatar src={demoAvatarImages[0]} style={{ '--size': '48px' }} />
-          <Avatar src={demoAvatarImages[0]} style={{ '--size': '64px' }} />
-        </Space>
-      </DemoBlock>
-
-      <DemoBlock title='配合列表使用' padding='0'>
-        <List>
-          <List.Item
-            prefix={<Avatar src={demoAvatarImages[0]} />}
-            description='Deserunt dolor ea eaque eos'
-          >
-            Novalee Spicer
-          </List.Item>
-        </List>
       </DemoBlock>
     </>
   )

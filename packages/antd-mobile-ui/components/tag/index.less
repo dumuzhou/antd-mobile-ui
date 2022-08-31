@@ -1,0 +1,73 @@
+@import "../../style/index.less";
+
+@class-prefix-tag: ~"adm-tag";
+.@{class-prefix-tag} {
+  /*height: 42px;*/
+  padding: 4px 10px;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  .center();
+  &-round {
+    border-radius: 999px;
+  }
+  &-color {
+    &-default {
+      background-color: #666;
+      border-color: #666;
+    }
+    &-primary {
+      background-color: @--adm-color-primary;
+      border-color: @--adm-color-primary;
+    }
+
+    &-success {
+      background-color: @--adm-color-success;
+      border-color: @--adm-color-success;
+    }
+
+    &-warning {
+      background-color: @--adm-color-warning;
+      border-color: @--adm-color-warning;
+    }
+
+    &-danger {
+      background-color: @--adm-color-danger;
+      border-color: @--adm-color-danger;
+    }
+  }
+  &-fill {
+    &-outline {
+      background-color: transparent;
+    }
+  }
+  &-text {
+    color: #fff;
+    font-size: @--adm-font-size-3;
+
+    &-fill {
+      &-default {
+        color: #666;
+      }
+      &-primary {
+        color: @--adm-color-primary;
+      }
+
+      &-success {
+        color: @--adm-color-success;
+      }
+
+      &-warning {
+        color: @--adm-color-warning;
+      }
+
+      &-danger {
+        color: @--adm-color-danger;
+      }
+    }
+
+    /* #ifndef rn */
+    display: block;
+    /* #endif */
+  }
+}

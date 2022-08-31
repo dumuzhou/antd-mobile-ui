@@ -1,0 +1,18 @@
+@import "../../style/index.less";
+
+@class-prefix-ellipsis: ~"adm-ellipsis";
+.@{class-prefix-ellipsis} {
+  &-text {
+    color: @--adm-color-text;
+    font-size: @--adm-font-size-5;
+    /* prettier-ignore */
+    line-height: 39px;
+
+    /* #ifndef rn */
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    /* #endif */
+  }
+}

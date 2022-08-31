@@ -1,0 +1,35 @@
+@import "../../style/index.less";
+
+@class-prefix-page-indicator: ~"adm-page-indicator";
+.@{class-prefix-page-indicator} {
+  &-horizontal {
+    margin-right: -6px;
+    .flex();
+  }
+  &-vertical {
+    .rflex();
+    margin-bottom: -6px;
+  }
+  &-item {
+    width: 6px;
+    height: 6px;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-right: 6px;
+    &-crt {
+      width: 26px;
+      background-color: @--adm-color-primary;
+      &-column {
+        height: 26px;
+        width: 6px;
+      }
+    }
+    &-white {
+      background-color: #fff;
+    }
+    &-column {
+      margin-bottom: 6px;
+      margin-right: 0;
+    }
+  }
+}

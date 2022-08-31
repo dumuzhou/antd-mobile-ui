@@ -1,10 +1,13 @@
 import React from 'react'
+// 忽略，使用时引入antd-mobile-ui即可
 import { Steps } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import useHref from '../../../hooks/useHref'
 
 const { Step } = Steps
 
 export default () => {
+  useHref()
   return (
     <>
       <DemoBlock title='横向步骤条'>

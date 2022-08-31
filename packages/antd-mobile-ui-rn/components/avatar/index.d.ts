@@ -1,0 +1,22 @@
+import React, { ReactNode } from "react";
+import { NativeProps } from "../utils/native-props";
+import "./index.less";
+export declare type AvatarProps = {
+    fallback?: ReactNode;
+    src?: string;
+    color?: "default" | "primary" | "success" | "warning" | "danger";
+    disabled?: boolean;
+    fill?: "solid" | "outline" | "none";
+    shape?: "default" | "rounded" | "rectangular";
+    size?: "mini" | "small" | "middle" | "large";
+    onClick?: Function;
+    children?: any;
+    scope?: "userInfo" | "phoneNumber";
+    onGetUserInfo?: Function;
+    onGetAuthorize?: Function;
+    onGetPhoneNumber?: Function;
+    onOpenSetting?: Function;
+    onContact?: Function;
+} & NativeProps<"--border-color">;
+declare const Avatar: (p: AvatarProps) => React.ReactElement<any, string | React.JSXElementConstructor<any>>;
+export default Avatar;

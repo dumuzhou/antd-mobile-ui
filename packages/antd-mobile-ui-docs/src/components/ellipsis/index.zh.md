@@ -16,12 +16,8 @@
 
 ### 属性
 
-| 属性                            | 说明                                 | 类型                            | 默认值  |
-| ------------------------------- | ------------------------------------ | ------------------------------- | ------- |
-| collapseText                    | 收起操作的文案                       | `string`                        | `''`    |
-| content                         | 文本内容                             | `string`                        | -       |
-| direction                       | 省略位置                             | `'start' \| 'end' \| 'middle'`  | `'end'` |
-| expandText                      | 展开操作的文案                       | `string`                        | `''`    |
-| onContentClick                  | 点击文本内容时触发                   | `(e: React.MouseEvent) => void` | -       |
-| rows                            | 展示几行                             | `number`                        | `1`     |
-| stopPropagationForActionButtons | 阻止展开操作，收起操作引发的事件冒泡 | `PropagationEvent[]`            | `[]`    |
+| 属性           | 说明               | 类型                            | 默认值 |
+| -------------- | ------------------ | ------------------------------- | ------ |
+| content        | 文本内容           | `string`                        | -      |
+| onContentClick | 点击文本内容时触发 | `(e: React.MouseEvent) => void` | -      |
+| rows           | 展示几行           | `number`                        | `1`    |
