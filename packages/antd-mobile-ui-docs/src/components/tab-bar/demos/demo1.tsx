@@ -9,31 +9,36 @@ import {
   UserOutline,
 } from 'antd-mobile-icons'
 
+import useHref from '../../../hooks/useHref'
+
 export default () => {
+  useHref()
   const tabs = [
     {
       key: 'home',
       title: '首页',
       icon: <AppOutline />,
-      badge: Badge.dot,
+      selectIcon: <AppOutline />,
     },
     {
       key: 'todo',
       title: '我的待办',
       icon: <UnorderedListOutline />,
-      badge: '5',
+      selectIcon: <UnorderedListOutline />,
     },
     {
       key: 'message',
       title: '我的消息',
       icon: (active: boolean) =>
         active ? <MessageFill /> : <MessageOutline />,
-      badge: '99+',
+      selectIcon: (active: boolean) =>
+        active ? <MessageFill /> : <MessageOutline />,
     },
     {
       key: 'personalCenter',
       title: '个人中心',
       icon: <UserOutline />,
+      selectIcon: <UserOutline />,
     },
   ]
 
@@ -45,19 +50,6 @@ export default () => {
         <TabBar>
           {tabs.map(item => (
             <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
-          ))}
-        </TabBar>
-      </DemoBlock>
-
-      <DemoBlock title='徽标' padding='0'>
-        <TabBar>
-          {tabs.map(item => (
-            <TabBar.Item
-              key={item.key}
-              icon={item.icon}
-              title={item.title}
-              badge={item.badge}
-            />
           ))}
         </TabBar>
       </DemoBlock>
@@ -74,22 +66,6 @@ export default () => {
         <TabBar>
           {tabs.map(item => (
             <TabBar.Item key={item.key} title={item.title} />
-          ))}
-        </TabBar>
-      </DemoBlock>
-
-      <DemoBlock title='受控组件' padding='0'>
-        <TabBar activeKey={activeKey} onChange={setActiveKey}>
-          {tabs.map(item => (
-            <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
-          ))}
-        </TabBar>
-      </DemoBlock>
-
-      <DemoBlock title='开启安全区' padding='0'>
-        <TabBar safeArea>
-          {tabs.map(item => (
-            <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
           ))}
         </TabBar>
       </DemoBlock>
