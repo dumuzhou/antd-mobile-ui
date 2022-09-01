@@ -9,16 +9,16 @@ import "./index.less";
 
 const classPrefix = `adm-progress-bar`;
 
-export type ButtonProps = {
+export type ProgressBarProps = {
   percent?: number;
   text?: ReactNode;
   rounded?: boolean;
 };
-const defaultProps: ButtonProps = {
+const defaultProps: ProgressBarProps = {
   percent: 0,
   rounded: true,
 };
-const ProgressBar = function (p: ButtonProps) {
+const ProgressBar = function (p: ProgressBarProps) {
   const props = { ...defaultProps, ...p };
   return (
     <View className={classnames(`${classPrefix}`)}>

@@ -9,12 +9,12 @@ import "./index.less";
 
 const classPrefix = `adm-empty`;
 
-export type ResultProps = {
+export type EmptyProps = {
   image?: ReactNode;
   description?: ReactNode;
 };
-const defaultProps: ResultProps = {};
-const Result = function (p: ResultProps) {
+const defaultProps: EmptyProps = {};
+const Empty = function (p: EmptyProps) {
   const props = { ...defaultProps, ...p };
   return (
     <View className={classnames(`${classPrefix}`)}>
@@ -29,4 +29,4 @@ const Result = function (p: ResultProps) {
     </View>
   );
 };
-export default Result;
+export default Empty;

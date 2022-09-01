@@ -5,11 +5,11 @@ import { View, Text } from "@tarojs/components";
 import "./index.less";
 const classPrefix = `adm-empty`;
 const defaultProps = {};
-const Result = function (p) {
+const Empty = function (p) {
     const props = Object.assign(Object.assign({}, defaultProps), p);
     return (React.createElement(View, { className: classnames(`${classPrefix}`) },
         !!props.image && (React.createElement(View, { className: `${classPrefix}-icon` }, props.image)),
         !!props.description && (React.createElement(View, { className: `${classPrefix}-infos` },
             React.createElement(Text, { className: `${classPrefix}-info` }, props.description)))));
 };
-export default Result;
+export default Empty;

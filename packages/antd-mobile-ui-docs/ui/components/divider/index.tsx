@@ -9,14 +9,14 @@ import "./index.less";
 
 const classPrefix = `adm-divider`;
 
-export type ButtonProps = {
+export type DividerProps = {
   direction?: "horizontal" | "vertical";
   children?: any;
 };
-const defaultProps: ButtonProps = {
+const defaultProps: DividerProps = {
   direction: "horizontal",
 };
-const Divider = function (p: ButtonProps) {
+const Divider = function (p: DividerProps) {
   console.log("child");
   const props = { ...defaultProps, ...p };
   console.log(props.children);

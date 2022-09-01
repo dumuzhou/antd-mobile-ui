@@ -5,7 +5,7 @@ import { View, Text } from "@tarojs/components";
 import "./index.less";
 const classPrefix = `adm-empty`;
 const defaultProps = {};
-const Result = function (p) {
+const Empty = function (p) {
     const props = { ...defaultProps, ...p };
     return (<View className={classnames(`${classPrefix}`)}>
       {!!props.image && (<View className={`${classPrefix}-icon`}>{props.image}</View>)}
@@ -14,4 +14,4 @@ const Result = function (p) {
         </View>)}
     </View>);
 };
-export default Result;
+export default Empty;

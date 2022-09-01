@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 import "./index.less";
-export declare type ButtonProps = {
+export declare type ProgressBarProps = {
     percent?: number;
     text?: ReactNode;
     rounded?: boolean;
 };
-declare const ProgressBar: (p: ButtonProps) => JSX.Element;
+declare const ProgressBar: (p: ProgressBarProps) => JSX.Element;
 export default ProgressBar;

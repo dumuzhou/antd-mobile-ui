@@ -9,17 +9,17 @@ import "./index.less";
 
 const classPrefix = `adm-notice-bar`;
 
-export type ButtonProps = {
+export type NoticeBarProps = {
   icon?: ReactNode;
   extra?: ReactNode;
   content?: string;
   color?: "default" | "alert" | "error" | "info";
   onClose?: Function;
 };
-const defaultProps: ButtonProps = {
+const defaultProps: NoticeBarProps = {
   color: "default",
 };
-const NoticeBar = function (p: ButtonProps) {
+const NoticeBar = function (p: NoticeBarProps) {
   const props = { ...defaultProps, ...p };
   const [show, setShow] = useState(true);
   return (

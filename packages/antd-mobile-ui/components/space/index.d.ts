@@ -7,5 +7,5 @@ export declare type SpaceProps = {
     children?: any;
     onClick?: Function;
 };
-declare const TmButton: (p: SpaceProps) => JSX.Element;
-export default TmButton;
+declare const Space: (p: SpaceProps) => JSX.Element;
+export default Space;

@@ -9,15 +9,15 @@ import "./index.less";
 
 const classPrefix = `adm-nav-bar`;
 
-export type ButtonProps = {
+export type NavBarProps = {
   back?: string | null;
   backArrow?: ReactNode;
   right?: ReactNode;
   onBack?: Function;
   children?: any;
 };
-const defaultProps: ButtonProps = {};
-const NavBar = function (p: ButtonProps) {
+const defaultProps: NavBarProps = {};
+const NavBar = function (p: NavBarProps) {
   const props = { ...defaultProps, ...p };
   return (
     <View className={classnames(`${classPrefix}`)}>

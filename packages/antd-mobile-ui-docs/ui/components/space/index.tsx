@@ -22,7 +22,7 @@ const defaultProps: SpaceProps = {
   align: "center",
   wrap: false,
 };
-const TmButton = function (p: SpaceProps) {
+const Space = function (p: SpaceProps) {
   const props = { ...defaultProps, ...p };
   return (
     <View
@@ -60,4 +60,4 @@ const TmButton = function (p: SpaceProps) {
     </View>
   );
 };
-export default TmButton;
+export default Space;

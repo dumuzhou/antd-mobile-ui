@@ -10,7 +10,7 @@ const defaultProps = {
     align: "center",
     wrap: false,
 };
-const TmButton = function (p) {
+const Space = function (p) {
     const props = { ...defaultProps, ...p };
     return (<View className={classnames(`${classPrefix}`, props.align ? `${classPrefix}-align-${props.align}` : null, {
             [`${classPrefix}-vertical`]: props.direction === "vertical",
@@ -31,4 +31,4 @@ const TmButton = function (p) {
         })}
     </View>);
 };
-export default TmButton;
+export default Space;

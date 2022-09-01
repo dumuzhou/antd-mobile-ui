@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import "./index.less";
-export declare type ResultProps = {
+export declare type EmptyProps = {
     image?: ReactNode;
     description?: ReactNode;
 };
-declare const Result: (p: ResultProps) => JSX.Element;
-export default Result;
+declare const Empty: (p: EmptyProps) => JSX.Element;
+export default Empty;

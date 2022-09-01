@@ -10,7 +10,7 @@ const defaultProps = {
     align: "center",
     wrap: false,
 };
-const TmButton = function (p) {
+const Space = function (p) {
     const props = Object.assign(Object.assign({}, defaultProps), p);
     return (React.createElement(View, { className: classnames(`${classPrefix}`, props.align ? `${classPrefix}-align-${props.align}` : null, {
             [`${classPrefix}-vertical`]: props.direction === "vertical",
@@ -27,4 +27,4 @@ const TmButton = function (p) {
             }) }, child)));
     })));
 };
-export default TmButton;
+export default Space;
