@@ -35,7 +35,7 @@ export { Button, Space } from 'antd-mobile-ui-rn'
 ## 使用
 
 ```javascript
-import { Button, Space } from '路径/antd-mobile-ui'
+import { Button, Space } from 'components/antd-mobile-ui'
 ```
 
 <!--## 在线体验-->
