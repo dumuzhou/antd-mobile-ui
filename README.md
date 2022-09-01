@@ -1,4 +1,5 @@
 # 快速上手
+
 [文档](https://antd-mobile-ui.setmp.com/zh)
 
 antd-mobile-ui 是用 taro3 开发，兼容 rn、h5 和小程序的 ui
@@ -26,18 +27,17 @@ esnextModules: ["antd-mobile-ui"],
 components/antd-mobile-ui/index.tsx
 
 ```javascript
-export { Button, Space } from 'antd-mobile-ui'
+export { Button, Space } from "antd-mobile-ui";
 ```
 
 components/antd-mobile-ui/index.rn.tsx
 
 ```javascript
-export { Button, Space } from 'antd-mobile-ui-rn'
+export { Button, Space } from "antd-mobile-ui-rn";
 ```
 
 ## 使用
 
 ```javascript
-import { Button, Space } from 'components/antd-mobile-ui'
+import { Button, Space } from "components/antd-mobile-ui";
 ```
-
