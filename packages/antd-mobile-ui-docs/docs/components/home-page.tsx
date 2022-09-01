@@ -68,7 +68,7 @@ export default () => {
             </p>
             <p className={styles.buttons}>
               <a href={trans('/guide/quick-start', '/zh/guide/quick-start')}>
-                {trans('Get Started', '开始使用1')}
+                {trans('Get Started', '开始使用')}
               </a>
               <a href={trans('/components', '/zh/components')}>
                 {trans('Components', '组件列表')}
