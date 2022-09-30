@@ -17,7 +17,10 @@ export default function () {
     // https://www.setmp.com/#/~demos/button-demo1
     let rst = href
       .replace('http://localhost:8000/', 'http://localhost:10086/#/')
-      .replace('https://antd-mobile-ui.setmp.com/', 'https://www.setmp.com/#/')
+      .replace(
+        'https://antd-mobile-ui.setmp.com/',
+        'https://demos.setmp.com/#/'
+      )
       .replace('~', '')
     if (href.indexOf('https') > -1) {
       rst = rst + 'index'
