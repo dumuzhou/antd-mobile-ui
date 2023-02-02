@@ -25,6 +25,19 @@ function clean() {
   return del('./lib/**')
 }
 
+// 重命名
+function renameBuild() {
+  return gulp
+    .src(['./ui/**/*.rn.ts'])
+    .pipe(
+      rename((a, b) => {
+        a.basename = a.basename.replace('.rn', '')
+        return a
+      })
+    )
+    .pipe(gulp.dest('./dist'))
+}
+
 function buildStyle() {
   return gulp
     .src(['./src/**/*.less'], {

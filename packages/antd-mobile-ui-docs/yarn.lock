@@ -4174,9 +4174,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"antd-mobile-ui@npm:^0.0.18":
-  version: 0.0.18
-  resolution: "antd-mobile-ui@npm:0.0.18"
+"antd-mobile-ui@npm:^0.0.30":
+  version: 0.0.30
+  resolution: "antd-mobile-ui@npm:0.0.30"
   dependencies:
     "@floating-ui/dom": ^0.5.2
     "@react-spring/web": ^9.4.5
@@ -4184,6 +4184,7 @@ __metadata:
     "@use-gesture/react": 10.2.15
     ahooks: ^3.4.1
     antd-mobile-icons: ^0.3.0
+    antd-mobile-ui: ^0.0.30
     antd-mobile-v5-count: ^1.0.1
     big.js: ^6.1.1
     classnames: ^2.3.1
@@ -4196,7 +4197,7 @@ __metadata:
     use-sync-external-store: ^1.1.0
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 79c9f2806b0a723236f71d0fcfd1d0fc8cf1e44daa2cb4496b2ac0e05f41a31ade495e4305ba8d0e5fe8ae57b09c01b045d6045c883d76a835d8760bf4e700ca
+  checksum: e1248cfec442cd0c2fed29bce12e0b86ba52e81650df7d4855c48bddd181d3f982f11c6fc6638fb47d6ad754c225f25afb5b0caf21f0f31c872b014e2dcd8ab0
   languageName: node
   linkType: hard
 
@@ -4246,7 +4247,7 @@ __metadata:
     "@use-gesture/react": 10.2.15
     ahooks: ^3.4.1
     antd-mobile-icons: ^0.3.0
-    antd-mobile-ui: ^0.0.18
+    antd-mobile-ui: ^0.0.30
     antd-mobile-v5-count: ^1.0.1
     autoprefixer: ^9.8.8
     babel-loader: ^8.2.5
