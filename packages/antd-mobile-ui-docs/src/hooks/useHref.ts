@@ -19,7 +19,10 @@ export default function () {
       .replace('http://localhost:8000/', 'http://192.168.0.188:10086/#/')
       .replace(
         'https://antd-mobile-ui.setmp.com/',
-        'https://demos.setmp.com/#/'
+        'https://antd-mobile-ui.setmp.com/demos/#/'
+      ).replace(
+        'https://dumuzhou.github.io/',
+        'https://dumuzhou.github.io/demos/#/'
       )
       .replace('~', '')
     if (href.indexOf('https') > -1) {
