@@ -30,6 +30,8 @@ export default function () {
     } else {
       rst = rst + '/index'
     }
+    console.log("href结果")
+    console.log(rst)
     if (rst) {
       document.location.href = rst
     }
