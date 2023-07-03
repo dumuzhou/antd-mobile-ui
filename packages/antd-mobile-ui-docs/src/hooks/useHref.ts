@@ -19,11 +19,11 @@ export default function () {
       .replace('http://localhost:8000/', 'http://192.168.0.188:10086/#/')
        .replace(
         'http://antd-mobile-ui.setmp.com/',
-        'http://antd-mobile-ui.setmp.com/demos/#/'
+        'http://antd-mobile-ui.setmp.com/#/'
       )
       .replace(
         'https://antd-mobile-ui.setmp.com/',
-        'https://antd-mobile-ui.setmp.com/demos/#/'
+        'https://antd-mobile-ui.setmp.com/#/'
       ).replace(
         'https://dumuzhou.github.io/',
         'https://dumuzhou.github.io/demos/#/'
