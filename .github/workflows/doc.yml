@@ -51,4 +51,4 @@ jobs:
         rsync -rz  packages/antd-mobile-ui-docs/dist/ root@$HOST:~/myDocker/nginx/antd-mobile-ui/www/
         # 构建docker
         ssh root@$HOST "cd /root/myDocker/nginx;/root/myDocker/nginx/build.sh"
-        ssh root@$HOST "cd /root/myCompose/nginx;/root/myCompose/build.sh"
+        ssh root@$HOST "cd /root/myCompose;/root/myCompose/build.sh"
