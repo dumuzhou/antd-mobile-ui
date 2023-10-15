@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 export default function () {
   useEffect(() => {
+    console.log('修改href')
     let href = document.location.href
     let el = window.parent.document.getElementsByClassName(
       '__dumi-default-navbar-tool'
@@ -17,14 +18,12 @@ export default function () {
     // https://www.setmp.com/#/~demos/button-demo1
     let rst = href
       .replace('http://localhost:8000/', 'http://192.168.0.188:10086/#/')
-       .replace(
-        'http://antd-mobile-ui.setmp.com/',
-        'http://demos.setmp.com/#/'
-      )
+      .replace('http://antd-mobile-ui.setmp.com/', 'http://demos.setmp.com/#/')
       .replace(
         'https://antd-mobile-ui.setmp.com/',
         'https://demos.setmp.com/#/'
-      ).replace(
+      )
+      .replace(
         'https://dumuzhou.github.io/',
         'https://dumuzhou.github.io/demos/#/'
       )
@@ -34,7 +33,7 @@ export default function () {
     } else {
       rst = rst + '/index'
     }
-    console.log("href结果")
+    console.log('href结果')
     console.log(rst)
     if (rst) {
       document.location.href = rst

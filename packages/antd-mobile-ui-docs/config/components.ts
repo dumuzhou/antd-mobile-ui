@@ -1,7 +1,7 @@
 export const components = {
   common: ['/components/button', '/components/icon'],
   layout: [
-    //'/components/auto-center',
+    '/components/auto-center',
     '/components/divider',
     //'/components/grid',
     //'/components/safe-area',
@@ -52,7 +52,7 @@ export const components = {
   ],
   feedback: [
     //'/components/action-sheet',
-    //'/components/dialog',
+    '/components/dialog',
     '/components/empty',
     '/components/error-block',
     //'/components/loading',
@@ -64,7 +64,7 @@ export const components = {
     //'/components/progress-circle',
     //'/components/pull-to-refresh',
     '/components/result',
-    //'/components/skeleton',
+    '/components/skeleton',
     //'/components/swipe-action',
     //'/components/toast',
   ],
