@@ -1,2 +1,4 @@
 .DS_Store
 packages/.DS_Store
+node_modules
+

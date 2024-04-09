@@ -8,7 +8,7 @@
   "typings": "./components/index.d.ts",
   "scripts": {
     "install": "node ./scripts/fix.js",
-    "start": "dumi dev",
+    "start": "dumi dev --port=9005",
     "build": "gulp",
     "build-doc": "dumi build && echo '!.*' > dist/.surgeignore",
     "lint": "eslint .",
