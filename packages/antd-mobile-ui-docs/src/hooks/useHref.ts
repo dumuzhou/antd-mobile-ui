@@ -17,7 +17,7 @@ export default function () {
     // https://antd-mobile-ui.setmp.com/~demos/button-demo2
     // https://www.setmp.com/#/~demos/button-demo1
     let rst = href
-      .replace('http://localhost:8000/', 'http://192.168.0.188:10086/#/')
+      .replace('http://localhost:9005/', 'http://127.0.0.1:9004/#/')
       .replace('http://antd-mobile-ui.setmp.com/', 'http://demos.setmp.com/#/')
       .replace(
         'https://antd-mobile-ui.setmp.com/',
